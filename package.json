@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/oSIBERIAo/SimpleUI/issues"
   },
-  "homepage": "https://github.com/oSIBERIAo/SimpleUI#readme"
+  "homepage": "https://github.com/oSIBERIAo/SimpleUI#readme",
+  "dependencies": {
+    "vue": "^2.5.20"
+  }
 }
