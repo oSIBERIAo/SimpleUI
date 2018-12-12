@@ -1,9 +1,7 @@
 <template>
-    <button class="s-button" :class="{[`icon-${icon_position}`]: true,}">
-        <!-- <svg v-if="icon" class="icon" aria-hidden="true">
-            <use :xlink:href="`#icon-i-${icon}`"></use>
-        </svg> -->
-        <s-icon v-if="icon" :name="icon"></s-icon>    
+    <button class="s-button" :class="{[`icon-${icon_position}`]: true,}" @click="$emit('click')">
+        <s-icon v-if="loading"  class="loading" name="loading"></s-icon>   
+        <s-icon v-if="icon && loading == false" :name="icon"></s-icon>    
         <slot></slot>
     </button>
 </template>
@@ -12,6 +10,10 @@
         // props: ['icon', 'icon_position']
         props: {
             icon: {},
+            loading: {
+                type: Boolean,
+                default: false,
+            },
             icon_position: {
                 type: String,
                 default: 'left',
@@ -20,17 +22,30 @@
                     return ['left', 'right'].indexOf(value) !== -1 
                 }
             },
-        }
+        },
+        // methods: {
+        //     changeLoading: function () {
+        //         this.loading = !this.loading
+        //     },
+        // }
     }
 </script>
 <style lang="scss">
+    @keyframes spin {
+        0%{ transform: rotate(0deg);}
+        100%{ transform: rotate(360deg);}
+    }
+    .loading { animation: spin 1s infinite linear;}
     .s-button {
         font-size: var(--font-size);
         height: var(--button-height);
         padding: 0 1em;
         border-radius: var(--border-radius);
-        border: 1px solid var(--border-color);
-        background: var(--button-bg);
+        border: #2C95FF;
+        background:  #2C95FF;
+        box-shadow: 0 0 1px 0 rgba(10,31,68,0.08), 0 3px 4px 0 rgba(10,31,68,0.10);
+
+        color: #fff;
 
         display: inline-flex;
         justify-content: center;
@@ -38,11 +53,11 @@
         vertical-align: top;  // 修复对齐Bug
        
         &:hover {
-        border-color: var(--border-color-hover);
+            border-color: #60AFFF;
         }
 
         &:active {
-            background-color: var(--button-active-bg);
+            background-color: #154A7F;
         }
 
         &:focus {

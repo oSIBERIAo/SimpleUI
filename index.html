@@ -35,12 +35,13 @@
 </head>
 <body>
     <div id="app">
-        <s-button icon="setting" icon_position="left">左图标按钮</s-button>
-        <s-button icon="setting" icon_position="right">右图标按钮</s-button>
+        <s-button icon="loading" :loading='loading1' icon_position="left" @click="loading1 = !loading1">加载图标按钮</s-button>
+        <s-button icon="setting" :loading='loading2' icon_position="left" @click="loading2 = !loading2">左图标按钮</s-button>
+        <s-button icon="setting" :loading='loading3' icon_position="right" @click="loading3 = !loading3">右图标按钮</s-button>
     </div>
 
 <script src="./src/app.js"></script>
-<script src="//at.alicdn.com/t/font_962879_nuani1cgmht.js"></script>
+<script src="//at.alicdn.com/t/font_962879_fhn6j50ind.js"></script>
 <script>
 
 </script>   
