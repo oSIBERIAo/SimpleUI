@@ -1,8 +1,8 @@
 {
   "name": "simpleui-pre-alpha",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "简UI框架",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev-test": "parcel watch test/* --no-cache & karma start",
