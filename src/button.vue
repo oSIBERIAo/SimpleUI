@@ -7,7 +7,6 @@
 </template>
 <script>
     export default {
-        // props: ['icon', 'icon_position']
         props: {
             icon: {},
             loading: {
@@ -23,11 +22,6 @@
                 }
             },
         },
-        // methods: {
-        //     changeLoading: function () {
-        //         this.loading = !this.loading
-        //     },
-        // }
     }
 </script>
 <style lang="scss">
@@ -65,12 +59,12 @@
             outline: none;
         }
 
-        &.icon-left.content { order: 2; }
-        &.icon-left.s-icon { order: 1; }
+        &.icon-left.content { order: 1; }
+        &.icon-left.s-icon { order: 0; }
         
         &.icon-right {
-            > .content { order: 1; }
-            > .s-icon { order: 2; margin: 0 0 0 0.5em;}
+            > .content { order: 0; }
+            > .s-icon { order: 1; margin: 0 0 0 0.5em;}
         }
     }
 </style>
