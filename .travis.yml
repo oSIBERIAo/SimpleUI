@@ -8,8 +8,4 @@ before_script:
   - "sudo chown root /opt/google/chrome/chrome-sandbox"
   - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 script: 
-<<<<<<< HEAD
   - npm run karma-test
-=======
-  - karma-test
->>>>>>> 0076afb483e2402c9015c3ee8d497b5519aa304c
