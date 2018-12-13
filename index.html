@@ -38,8 +38,16 @@
         <s-button icon="loading" :loading='loading1' icon_position="left" @click="loading1 = !loading1">加载图标按钮</s-button>
         <s-button icon="setting" :loading='loading2' icon_position="left" @click="loading2 = !loading2">左图标按钮</s-button>
         <s-button icon="setting" :loading='loading3' icon_position="right" @click="loading3 = !loading3">右图标按钮</s-button>
+        <s-button-group>
+            <s-button icon="left" icon_position="left">上一页</s-button>
+            <s-button>更多</s-button>
+            <s-button icon="right" icon_position="right">下一页</s-button>
+        </s-button-group>
     </div>
 
+<script>
+    const log = console.log.bind(console);
+</script>
 <script src="./src/app.js"></script>
 <script src="//at.alicdn.com/t/font_962879_fhn6j50ind.js"></script>
 <script>

@@ -2,7 +2,7 @@
 </template>
 <script>
     export default {
-        props: {}，
+        props: {},
     }
 </script>
 <style lang="scss">

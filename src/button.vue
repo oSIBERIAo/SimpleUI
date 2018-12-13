@@ -54,6 +54,7 @@
        
         &:hover {
             border-color: #60AFFF;
+            background-color:  #60AFFF;
         }
 
         &:active {
