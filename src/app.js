@@ -20,6 +20,9 @@ var app = new Vue({
 //单元测试
 
 import chai from 'chai'
+import spies from 'chai-spies'
+
+chai.use(spies)
 
 var expect = chai.expect
 
@@ -100,12 +103,12 @@ var expect = chai.expect
         }
     })
     vm.$mount()
-    vm.$on('click', function () {
-        expect(1).to.eq(1)
-    })
+    let spy = chai.spy(function () { });
+    vm.$on('click', spy)
     // 函数被执行
     let button = vm.$el
     button.click()
+    expect(spy).to.have.been.called()
     vm.$el.remove()
     vm.$destroy()
 }
