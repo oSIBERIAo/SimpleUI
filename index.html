@@ -36,11 +36,15 @@
 <body>
     <div id="app">
         <div>
-            <s-input></s-input>
+            <s-input @input_input='input_input'></s-input>
             <s-input :readonly=true value="readonly"></s-input>
-            <s-input :success=true></s-input>
             <s-input :disabled=true></s-input>
+            <s-input :success=true></s-input>
             <s-input error="出错了"></s-input>
+        </div>
+        <br>
+        <div>
+            <p>{{current_input}}</p>
         </div>
         <br>
         <!-- <s-input></s-input>  -->

@@ -1,6 +1,9 @@
 const expect = chai.expect;
 import Vue from 'vue'
 import Button from '../src/button'
+import Icon from '../src/icon'
+import ButtonGroup from '../src/button-group'
+import Input from "../src/input";
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
