@@ -63,6 +63,9 @@
             outline: none;
         }
 
+        & > .s-icon {
+            fill: white;
+        }
         &.icon-left.content { order: 1; }
         &.icon-left.s-icon { order: 0; }
         
