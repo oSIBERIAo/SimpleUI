@@ -36,7 +36,8 @@
 <body>
     <div id="app">
         <div>
-            <s-input @input_input='input_input'></s-input>
+            <s-input v-bind:value="current_input"  v-on:input="current_input = $event"></s-input>
+            <s-input v-model="current_input"></s-input>
             <s-input :readonly=true value="readonly"></s-input>
             <s-input :disabled=true></s-input>
             <s-input :success=true></s-input>

@@ -1,10 +1,10 @@
 <template>
     <div class="wrapper" :class="{error}">
         <input :value="value" class="s-input" :class="{disabled, success, error}" :readonly="readonly" 
-        @input="$emit('input_input', $event)"
-        @change="$emit('input_change', $event)"
-        @focus="$emit('input_focus', $event)"
-        @blur="$emit('input_blur', $event)">               
+        @input="$emit('input', $event.target.value)"
+        @change="$emit('input_change', $event.target.value)"
+        @focus="$emit('input_focus', $event.target.value)"
+        @blur="$emit('input_blur', $event.target.value)">               
         <template v-if="error">
             <s-icon v-if="error" name="alert"><s-icon> 
         </template> 
@@ -22,7 +22,7 @@
         props: {
             name: {},
             value: {
-                type: String
+                type: String,
             },
             error: {
                 type: String,

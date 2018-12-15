@@ -106,19 +106,31 @@ describe('Input', () => {
         })
        
         it("input_ 全部事件", () => {
-            let array = ['input', 'change', 'focus', 'blur']
+            let array = ['change', 'focus', 'blur', 'input',]
             array.forEach(eventNames => {
                 const Constructor = Vue.extend(Input);
                 vm = new Constructor();
                 vm.$mount();
                 let callback = sinon.fake()
-                vm.$on(`input_${eventNames}`, callback)
+
+                if (eventNames == 'input') {
+                    vm.$on(eventNames, callback)
+                } else {
+                    vm.$on(`input_${eventNames}`, callback)
+                }
 
                 let input = vm.$el.querySelector("input");
 
                 // IE
                 var eventA = document.createEvent('Event');
                 eventA.initEvent(eventNames, true, true);
+
+                //修改只读属性并返回
+                Object.defineProperty(
+                    eventA, 
+                    'target', 
+                    { value: { value: 'testValue'}, enumerable: true }
+                )
                 var a = input.dispatchEvent(eventA);
                 expect(a).to.equal(true);
 
@@ -126,11 +138,15 @@ describe('Input', () => {
                     'bubbles': true,
                     'cancelable': true
                 });
-
+                Object.defineProperty(
+                    eventB,
+                    'target',
+                    { value: { value: 'testValue' }, enumerable: true }
+                )
                 var b = input.dispatchEvent(eventB);
                 expect(b).to.equal(true);
 
-                expect(callback).to.have.been.calledTwice.calledWith(eventA || eventB)
+                expect(callback).to.have.been.calledTwice.calledWith(eventA.target.value || eventB.target.value)
             });
            
         });
