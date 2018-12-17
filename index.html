@@ -30,7 +30,16 @@
         }
     </style>
     <style>
-        
+        .row{
+            display: flex;
+        }
+        .col{
+            height: 100px;
+            background-color: #60afff;
+            width: 50%;
+            /* border: 1px solid red; */
+            outline: 1px solid #007eff;
+        }
     </style>
 </head>
 <body>
@@ -59,6 +68,50 @@
                 <s-button icon="right" icon_position="right">下一页</s-button>
             </s-button-group>
         </div>
+        <br><br>
+        <s-row>
+            <s-col></s-col>
+            <s-col></s-col>
+        </s-row>
+        <s-row>
+            <s-col :spen="2"></s-col>
+            <s-col :spen="22"></s-col>
+        </s-row>
+        <s-row>
+            <s-col :spen="2"></s-col>
+            <s-col :spen="2"></s-col>
+            <s-col :spen="2"></s-col>
+            <s-col :spen="4"></s-col>
+            <s-col :spen="6"></s-col>
+            <s-col :spen="8"></s-col>
+        </s-row>
+        <!-- <br><br>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+        </div> -->
     </div>
 
 <script>
