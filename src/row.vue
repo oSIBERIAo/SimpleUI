@@ -1,23 +1,32 @@
 <template>
-    <div class="s-row">
+    <div class="s-row" :style="rowStyle">
         <slot></slot>
     </div>
 </template>
 <script>
     export default {
         name: 'Row',
-        props: {},
+        props: {
+            gutter: [Number, String],
+        },
+        mounted() {
+            this.$children.forEach(col => {
+                col.gutter = this.gutter
+            })
+        },
+        computed: {
+            rowStyle() {
+                let {gutter,} = this
+                return {
+                    marginLeft:  -gutter/2 + 'px', 
+                    marginRight:  -gutter/2 + 'px',
+                }
+            }
+        }
     }
 </script>
 <style lang="scss" scoped>
     .s-row{
         display: flex;
-        // & > .col{
-        //     height: 100px;
-        //     background-color: #60afff;
-        //     // width: 50%;
-        //     /* border: 1px solid red; */
-        //     outline: 1px solid #007eff;
-        // }
     }
 </style>

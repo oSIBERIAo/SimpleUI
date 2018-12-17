@@ -30,16 +30,15 @@
         }
     </style>
     <style>
-        .row{
+        /* .row{
             display: flex;
         }
         .col{
             height: 100px;
             background-color: #60afff;
             width: 50%;
-            /* border: 1px solid red; */
             outline: 1px solid #007eff;
-        }
+        } */
     </style>
 </head>
 <body>
@@ -69,22 +68,23 @@
             </s-button-group>
         </div>
         <br><br>
-        <s-row>
-            <s-col></s-col>
-            <s-col></s-col>
-        </s-row>
-        <s-row>
-            <s-col :spen="2"></s-col>
-            <s-col :spen="22"></s-col>
-        </s-row>
-        <s-row>
-            <s-col :spen="2"></s-col>
-            <s-col :spen="2"></s-col>
-            <s-col :spen="2"></s-col>
-            <s-col :spen="4"></s-col>
-            <s-col :spen="6"></s-col>
-            <s-col :spen="8"></s-col>
-        </s-row>
+        <div style="border: 1px solid #100cff;">
+            <s-row :gutter="20">
+                <s-col>111</s-col>
+                <s-col>222</s-col>
+            </s-row>
+            <s-row :gutter="20">
+                <s-col :spen="2"></s-col>
+                <s-col :spen="22"></s-col>
+            </s-row>
+            <s-row :gutter="20">
+                <s-col :spen="2" :offset="2"></s-col>
+                <s-col :spen="2"></s-col>
+                <s-col :spen="4"></s-col>
+                <s-col :spen="6"></s-col>
+                <s-col :spen="8"></s-col>
+            </s-row>
+        </div>
         <!-- <br><br>
         <div class="row">
             <div class="col"></div>
