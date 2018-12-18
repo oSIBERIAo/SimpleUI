@@ -28,5 +28,6 @@
 <style lang="scss" scoped>
     .s-row{
         display: flex;
+        flex-wrap: wrap;
     }
 </style>
