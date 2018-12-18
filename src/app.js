@@ -258,3 +258,57 @@ var expect = chai.expect
     vm.$el.remove();
     vm.$destroy();
 }
+
+
+
+//row&col
+{
+    const Constructor = Vue.extend()
+    let div = document.createElement('div')
+    div.innerHTML = `
+        <s-row gutter="20">
+            <s-col :spen="12" :xs="{span:12, offset:12}" :sm="{span:10}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xll="{span:2}">col</s-col>
+            <s-col :spen="12" :xs="{span:12, offset:12}" :sm="{span:14}" :md="{span:16}" :lg="{span:18}" :xl="{span:20}" :xll="{span:22}">col</s-col>
+        </s-row>
+    `
+    document.body.appendChild(div)
+    let vm = new Constructor({})
+    
+    vm.$mount(div)
+
+    let judge = true
+
+    let col = vm.$el.querySelectorAll('.col')
+    let judgeClassList = [
+        ["col", "col-12", "col-xs-12", "offset-xs-12", "col-sm-10", "col-lg-6", "col-xl-4",],
+        ["col", "col-12", "col-xs-12", "offset-xs-12", "col-sm-14", "col-lg-18", "col-xl-20"],
+    ]
+
+    //验证classList是否预期
+    for (let i = 0; i < col.length; i++) {     
+        col[i].classList.forEach((style) => {
+            if (!judgeClassList[i].includes(style)) {
+                judge = false
+            }
+        })
+    }
+    expect(judge).to.equal(true)
+
+    let row = vm.$el.querySelectorAll('.s-row')
+
+    let rowStyle = row[0].style.cssText.split(';').filter(e => { return e != ""})
+    // console.log('rowStyle', rowStyle);
+    let judgeCssText = [
+        "margin-left: -10px", " margin-right: -10px",
+    ]
+    rowStyle.forEach((style) => {
+        if (!judgeCssText.includes(style)) {
+            log('style!!!', style)
+            judge = false
+        }
+    })
+
+    expect(judge).to.equal(true)
+    vm.$el.remove();
+    vm.$destroy();
+}
