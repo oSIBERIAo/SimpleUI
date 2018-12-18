@@ -36,9 +36,10 @@
         computed: {
             colClass() {
                 let {spen, offset, xs, sm, lg, xl, xxl,} = this
-                let ClassKeys = [ xs, sm, lg, xl, xxl,]
+                let ClassKeys = [xs, sm, lg, xl, xxl,]
                 let keys = ['xs', 'sm', 'lg', 'xl', 'xxl',]
-                let allclass = []
+
+                let allClass = [spen && `col-${spen}`, offset && `offset-${offset}`,]
                 for (let i = 0; i < ClassKeys.length; i++) {
                     let k =  ClassKeys[i]
                     if (k) { 
@@ -46,14 +47,10 @@
                             k.span && `col-${keys[i]}-${k.span}`, 
                             k.offset && `offset-${keys[i]}-${k.offset}`,
                         ] 
-                        allclass.push(...e)    
+                        allClass.push(...e)    
                     }  
                 }              
-                return [
-                    spen && `col-${spen}`, 
-                    offset && `offset-${offset}`,
-                    ...allclass,
-                ]
+                return allClass
             },
             colStyle() {
                 let {gutter,} = this
@@ -68,27 +65,18 @@
 <style lang="scss" >
     .col{
         height: 100px;
-        // background-color: #60afff;
         width: 50%;
-        // padding: 0 10px;
-        // margin: 0 10px;
-        // border: 1px dashed red;
         outline: 1px dashed  #007eff;
         $col: col-;
-        // loops through 100 times
         @for $n from 1 through 24 {
-            // for each $col_#{i} 
             &.#{$col}#{$n} {
                 width: ($n / 24) * 100%;
-                // background-color: darken(cornflowerblue, 0% + ($n / 2));
             }
         }
         $offset: offset-;
         @for $n from 1 through 24 {
-            // for each $col_#{i} 
             &.#{$offset}#{$n} {
                 margin-left: ($n / 24) * 100%;
-                // background-color: darken(cornflowerblue, 0% + ($n / 2));
             }
         }
     }
