@@ -68,6 +68,21 @@
             </s-button-group>
         </div>
         <br><br>
+        <s-layout>
+            <s-header>header</s-header>
+            <s-content>content</s-content>
+            <s-footer>footer</s-footer>
+        </s-layout>
+        <br>
+        <s-layout>
+            <s-header>header</s-header>
+            <s-layout>
+                <s-sider>sider</s-sider>
+                <s-content>content</s-content>
+            </s-layout>
+            <s-footer>footer</s-footer>
+        </s-layout>
+        <br><br>
         <div style="border: 1px solid #100cff; background: #68caff; ">
             <s-row>
                 <s-col 
@@ -136,9 +151,7 @@
     const log = console.log.bind(console);
 </script>
 <script src="./src/app.js"></script>
-<!-- <script src="./src/input.vue"></script> -->
 <script src="./src/unit-testing.js"></script>
-<!-- <script src="//at.alicdn.com/t/font_962879_fhn6j50ind.js"></script> -->
 <script>
 
 </script>   
