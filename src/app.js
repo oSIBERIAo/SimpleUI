@@ -47,15 +47,44 @@ var app = new Vue({
         current_input: undefined,
         sider_style: 'height: 100px; width: 150px;',
     },
+    created() {
+        this.$toast('New message on your toast',
+            {
+                closeButton: {
+                    text: "关闭",
+                    callback: (toast) => {
+                        toast.close()
+                    }
+                },
+                autoClose: false,
+                buttonVisible: true,
+            })
+    },
     methods: {
-        // toast() {
-        //     const Constructor = Vue.extend(Toast)
-        //     let vm = new Constructor().$mount()
-        //     document.body.appendChild(vm.$el)
-        // }
-        showToast() {
-            this.$toast('New message on your toast')
-        }   
+        showToastTop() {
+            this.$toast('<strong>New message on your toast</strong>', {
+                buttonVisible: true,
+                autoClose: false,
+                useHtml: true,
+                position: 'top',
+            })
+        },
+        showToastCenter() {
+            this.$toast('<strong>New message on your toast</strong>', {
+                buttonVisible: true,
+                autoClose: false,
+                useHtml: true,
+                position: 'center',
+            })
+        },
+        showToastDown() {
+            this.$toast('<strong>New message on your toast</strong>', {
+                buttonVisible: true,
+                autoClose: false,
+                useHtml: true,
+                position: 'down',
+            })
+        }        
     }
 })
 
