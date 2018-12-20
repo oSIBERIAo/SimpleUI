@@ -80,6 +80,7 @@
     methods: {
         close() {
             this.$el.remove()
+            this.$emit('closeToast')
             this.$destroy()
         },
         clickClose(){
