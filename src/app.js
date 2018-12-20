@@ -13,6 +13,11 @@ import Sider from './sider'
 import Content from './content'
 import Footer from './footer'
 
+import Toast from './toast'
+
+import plugin from './plugin'
+// import { install } from './plugin'
+
 Vue.component('s-button', Button)
 Vue.component('s-icon', Icon)
 Vue.component('s-button-group', ButtonGroup)
@@ -27,6 +32,11 @@ Vue.component('s-sider', Sider)
 Vue.component('s-content', Content)
 Vue.component('s-footer', Footer)
 
+Vue.component('s-toast', Toast)
+
+Vue.use(plugin)
+// Vue.use(install)
+
 
 var app = new Vue({
     el: '#app',
@@ -37,11 +47,16 @@ var app = new Vue({
         current_input: undefined,
         sider_style: 'height: 100px; width: 150px;',
     },
-    // methods: {
-    //     input(e) {
-    //         this.current_input = e 
-    //     }
-    // }
+    methods: {
+        // toast() {
+        //     const Constructor = Vue.extend(Toast)
+        //     let vm = new Constructor().$mount()
+        //     document.body.appendChild(vm.$el)
+        // }
+        showToast() {
+            this.$toast('New message on your toast')
+        }   
+    }
 })
 
 
