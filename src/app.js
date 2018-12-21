@@ -56,7 +56,7 @@ var app = new Vue({
                         toast.close()
                     }
                 },
-                autoClose: false,
+                autoClose: 3,
                 buttonVisible: true,
             })
     },

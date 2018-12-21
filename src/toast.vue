@@ -17,12 +17,13 @@
     },
     props: {
         autoClose: {
-            type: Boolean,
-            default: true,
-        },
-        autoCloseDelay: {
-            type: Number,
+            type: [Boolean, Number],
             default: 5,
+            validator: function (value) {
+                // 这个值必须匹配下列字符串中的一个
+                let a = typeof value === "boolean" || typeof value === "number";
+                return a
+            }
         },
         useHtml: {
             //谨慎使用！
@@ -58,7 +59,7 @@
         if (this.autoClose) {
             setTimeout(()=> {
                 this.close()
-            }, this.autoCloseDelay * 1000)
+            }, this.autoClose * 1000)
         }
         this.$nextTick(()=> {
             //获取toast的height赋值给分割线
