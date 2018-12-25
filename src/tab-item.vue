@@ -1,5 +1,5 @@
 <template>
-    <div class="tab-item" @click="select" :class="activeClass">
+    <div class="tab-item" @click="select" :class="activeClass" :data-name="name">
         <slot></solt>
     </div>
 </template>
@@ -28,14 +28,17 @@
         mounted() {
         },
         created() {      
-            this.eventBus.$on('update:selected', (name)=> {
-                this.active = this.name == name
-            })
+            if (this.eventBus) {
+                this.eventBus.$on('update:selected', (name)=> {
+                    this.active = this.name == name
+                })
+            }
         },
         methods: {
             select() {
                 if (this.disabled) { return }
                 this.eventBus.$emit('update:selected', this.name, this)
+                this.$emit('click', this) //测试用
             },
         },
         computed: {
