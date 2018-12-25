@@ -2,7 +2,7 @@ const expect = chai.expect;
 import Vue from 'vue'
 import Toast from "../src/toast";
 import plugin from '../src/plugin'
-import { callbackify } from 'util';
+import { callbackify, log } from 'util';
 import { eventNames } from 'cluster';
 
 Vue.component("s-toast", Toast)
@@ -46,7 +46,9 @@ describe('Toast', () => {
                 expect(judge).to.equal(true)
                 expect(callback).to.have.been.called
                 done()
-            })       
+                vm.$el.remove();
+                vm.$destroy()
+            })
         })
         it("Toast 内容使用 Html 检测、模拟点击关闭按钮", (done) => {
             let judge = true
@@ -89,6 +91,8 @@ describe('Toast', () => {
                 }
                 expect(judge).to.equal(true)
                 done()
+                vm.$el.remove();
+                vm.$destroy()
             })  
         })
     })

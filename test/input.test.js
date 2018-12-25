@@ -18,7 +18,7 @@ describe('Input', () => {
         const Constructor = Vue.extend(Input)
         let vm
         afterEach(() => {
-            // vm.$el.remove();
+            vm.$el.remove();
             vm.$destroy()
         })
         it("input传入 error 显示 alert 样式, :error=true", () => {
@@ -101,7 +101,7 @@ describe('Input', () => {
         const Constructor = Vue.extend(Input)
         let vm
         afterEach(() => {
-            // vm.$el.remove();
+            vm.$el.remove();
             vm.$destroy()
         })
        
