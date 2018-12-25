@@ -54,6 +54,34 @@
         <button @click='showToastTop' style="height:50px; width:50px;">top</button>
         <button @click='showToastCenter' style="height:50px; width:50px;">center</button>
         <button @click='showToastDown' style="height:50px; width:50px;">down</button>
+        <br><br>
+
+
+        <!-- Vue.component('s-tabs', Tabs)
+        Vue.component('s-tabs-body', TabsBody)
+        Vue.component('s-tabs-header', TabsHeader)
+        Vue.component('s-tabs-item', TabsItem)
+        Vue.component('s-tabs-pane', TabsPane) -->
+
+        <!-- <s-tab v-bind:selected="selectedTab" v-on:update:selected="selectedTab = $event"> -->
+        <s-tab :selected.sync='selectedTab'>
+            <s-tab-head>
+                <template slot="actions">
+                    <s-button>设置</button>
+                </template>
+                <s-tab-item :name='1' :disabled="true">科技</s-tab-item>
+                <s-tab-item :name='2'>
+                    <s-icon name="setting"></s-icon>数码
+                </s-tab-item>
+                <s-tab-item :name='3'>娱乐</s-tab-item>
+            </s-tab-head>
+            <s-tab-body>
+                <s-tab-pane :name='1'>科技内容</s-tab-pane>
+                <s-tab-pane :name='2'>数码内容</s-tab-pane>
+                <s-tab-pane :name='3'>娱乐内容</s-tab-pane>
+            </s-tab-body>
+
+        </s-tab>
 
         <!-- <s-toast></s-toast> -->
     </div>

@@ -15,6 +15,13 @@ import Footer from './footer'
 
 import Toast from './toast'
 
+import Tab from './tab'
+import TabBody from './tab-body'
+import TabHead from './tab-head'
+import TabItem from './tab-item'
+import TabPane from './tab-pane'
+
+
 import plugin from './plugin'
 // import { install } from './plugin'
 
@@ -34,6 +41,12 @@ Vue.component('s-footer', Footer)
 
 Vue.component('s-toast', Toast)
 
+Vue.component('s-tab', Tab)
+Vue.component('s-tab-body', TabBody)
+Vue.component('s-tab-head', TabHead)
+Vue.component('s-tab-item', TabItem)
+Vue.component('s-tab-pane', TabPane)
+
 Vue.use(plugin)
 // Vue.use(install)
 
@@ -46,6 +59,7 @@ var app = new Vue({
         loading3: false,
         current_input: undefined,
         sider_style: 'height: 100px; width: 150px;',
+        selectedTab: '2',
     },
     created() {
         this.$toast('New message on your toast',
@@ -61,6 +75,9 @@ var app = new Vue({
             })
     },
     methods: {
+        yyy() {
+            console.log('yyy');
+        },
         showToastTop() {
             this.$toast('<strong>New message on your toast</strong>', {
                 buttonVisible: true,
