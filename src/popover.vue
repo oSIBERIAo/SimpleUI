@@ -1,9 +1,12 @@
 <template>
-   <div class="popover" @click="trigger">
+   <!-- <div ref="popover" class="popover"  @click="popoverTrigger"> -->
+    <div ref="popover" class="popover">
         <div ref="content_wrapper" class="content-wrapper" v-show="visible" :class="positionClass">
             <slot name="content"></slot>
         </div>
-        <slot></slot>
+        <span ref="trigger_wrapper" style="display: inline-block;">
+            <slot></slot>
+        </span>
    </div>
 </template>
 <script>
@@ -22,11 +25,19 @@
                     return ['top', 'bottom', 'left', 'right'].indexOf(value) !== -1
                 }
             },
+            trigger: {
+                type: String,
+                default: 'click',
+                validator: function (value) {
+                    return ['click', 'hover',].indexOf(value) !== -1
+                }
+            }
         },
         methods: {
             popoverPosition() {
+                document.body.appendChild(this.$refs.content_wrapper) 
                 // let x, y, left, top, width, right, bottom, height  计算popover位置
-                let contentWrapper = document.querySelector(`.position-${this.position}`)
+                let contentWrapper = this.$refs.content_wrapper
                 let p = this.$el.getBoundingClientRect()
                 let popover = contentWrapper.getBoundingClientRect()
                 let style = contentWrapper.style
@@ -53,42 +64,105 @@
 
                 }
                 style.top = positions[this.position].top 
-                style.left = positions[this.position].left 
+                style.left = positions[this.position].left
+                // console.log('top left',  contentWrapper, style.top,  style.left);
+            },
+            onClickDocument (e) {
+                let a = e && this.$refs.content_wrapper.contains(e.target)
+                let b = e && this.$refs.trigger_wrapper.contains(e.target)
+                if (a || b) { //判断点击区域是否为content_wrapper || trigger_wrapper
+                    return
+                }
+                this.close()
             },
             close(e) {
-                let a = e && this.$refs.content_wrapper.contains(e.target)
-                if (!a) { //判断点击区域是否为content_wrapper
+                if (this.trigger === 'click') {
                     this.visible = false
-                    document.removeEventListener('click', this.close)
+                    document.removeEventListener(this.closeEvent, this.onClickDocument)
+                }
+                if (this.trigger === 'hover') {  
+                    this.triggerHover()
                 }
             },
+            triggerHover(){ //Hover触发函数
+                //延迟关闭       
+                let leaveTimeout = setTimeout(()=> {
+                    this.visible = false
+                    this.$refs.content_wrapper.removeEventListener('mouseenter', fn)
+                }, 250)
+
+                let fn = ()=> {
+                    // console.log('进入content_wrapper');
+                    clearTimeout(leaveTimeout)
+                    this.$refs.content_wrapper.addEventListener('mouseleave', fn2)
+                    this.$refs.content_wrapper.removeEventListener('mouseenter', fn)
+                }
+                let fn2 = ()=> {
+                    // console.log('离开content_wrapper');
+                    this.visible = false
+                    setTimeout(leaveTimeout, 250)
+                    this.$refs.content_wrapper.removeEventListener('mouseleave', fn2)
+                }
+
+                this.$refs.content_wrapper.addEventListener('mouseenter', fn)
+            },
             show() {
+                this.visible = true      
                 this.$nextTick(()=>{ 
-                    this.popoverPosition()
-                    document.body.appendChild(this.$refs.content_wrapper)       
-                    document.addEventListener('click', this.close) 
+                    this.popoverPosition() 
+                    if (this.trigger === 'click') {
+                        document.addEventListener('click', this.onClickDocument)
+                    }
+                    if (this.trigger === 'hover') {
+                        // this.$refs.content_wrapper.addEventListener('click', this.onClickDocument)
+                    }
                 })
             },
-            trigger(event){
-                if (!this.visible) {
-                    this.visible = true
-                    this.show()
-                } else {
-                    this.close()
-                }   
-            }
+            popoverTrigger(event){
+                if (event && this.$refs.trigger_wrapper.contains(event.target)) {
+                    // event.stopPropagation();    
+                    if (!this.visible) {          
+                        this.show()
+                    } else {
+                        this.close(event)
+                    }   
+                }  
+            },
         },
         mounted() {
-            // console.log('content_wrapper', this.$refs.content_wrapper);
+            if (this.trigger === 'click') {
+                this.$refs.trigger_wrapper.addEventListener('click', this.popoverTrigger)
+            } else {
+                this.$refs.trigger_wrapper.addEventListener('mouseenter', this.show)
+                this.$refs.trigger_wrapper.addEventListener('mouseleave', this.close)
+            }
         },
         computed: {
             positionClass() {
                 return `position-${this.position}`
             },
+            openEvent() {
+                // console.log(this.trigger);
+                if (this.trigger == 'click') {
+                    return 'click'
+                }
+                if (this.trigger == 'hover') {
+                    return 'mouseenter'
+                }
+            },
+            closeEvent() {
+                // console.log(this.trigger);
+                if (this.trigger == 'click') {
+                    return 'click'
+                }
+                if (this.trigger == 'hover') {
+                    return 'mouseleave'
+                }
+            },
         }
     }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     $color: #2C95FF;
     .popover{
         position: relative;

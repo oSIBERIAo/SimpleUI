@@ -66,17 +66,17 @@ var app = new Vue({
         selectedTab: '2',
     },
     created() {
-        this.$toast('New message on your toast',
-            {
-                closeButton: {
-                    text: "关闭",
-                    callback: (toast) => {
-                        toast.close()
-                    }
-                },
-                autoClose: 3,
-                buttonVisible: true,
-            })
+        // this.$toast('New message on your toast',
+        //     {
+        //         closeButton: {
+        //             text: "关闭",
+        //             callback: (toast) => {
+        //                 toast.close()
+        //             }
+        //         },
+        //         autoClose: 3,
+        //         buttonVisible: true,
+        //     })
     },
     methods: {
         yyy() {

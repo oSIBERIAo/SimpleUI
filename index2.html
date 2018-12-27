@@ -51,6 +51,7 @@
                 <s-footer>footer</s-footer>
             </s-layout>
         </s-layout> -->
+
         <button @click='showToastTop' style="height:50px; width:50px;">top</button>
         <button @click='showToastCenter' style="height:50px; width:50px;">center</button>
         <button @click='showToastDown' style="height:50px; width:50px;">down</button>
@@ -64,6 +65,7 @@
         Vue.component('s-tabs-pane', TabsPane) -->
 
         <!-- <s-tab v-bind:selected="selectedTab" v-on:update:selected="selectedTab = $event"> -->
+            
         <s-tab :selected.sync='selectedTab'>
             <s-tab-head>
                 <template slot="actions">
@@ -82,10 +84,13 @@
             </s-tab-body>
         </s-tab>
         <br><br><br><br><br><br><br><br>
+
         <!-- <div style="height: 2000px; width:2000px;"></div> -->
 
+
+        <br><br><br>
         <div style="display: flex; justify-content: center; align-items: center;">
-            <s-popover  position="left">
+            <s-popover position="left">
                 <template slot="content">
                     <div>
                         Never give up, Never lose hope.
@@ -111,7 +116,7 @@
                 </template>
                 <s-button>点击上</s-button>
             </s-popover>
-            <s-popover  position="bottom">
+            <s-popover position="bottom">
                 <template slot="content">
                     <div>
                         Never give up, Never lose hope.
@@ -125,6 +130,61 @@
                 <s-button>点击下</s-button>
             </s-popover>
             <s-popover position="right">
+                <template slot="content">
+                    <div>
+                        Never give up, Never lose hope.
+                        Always have faith, It allows you to cope.
+                        Trying times will pass, As they always do.
+                        Just have patience, Your dreams will come true.
+                        So put on a smile, You'll live through your pain.
+                        Know it will pass, And strength you will gain.
+                    </div>
+                </template>
+                <s-button>点击右</s-button>
+            </s-popover>
+        </div>
+        <br><br><br><br>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <s-popover position="left" trigger="hover">
+                <template slot="content">
+                    <div>
+                        Never give up, Never lose hope.
+                        Always have faith, It allows you to cope.
+                        Trying times will pass, As they always do.
+                        Just have patience, Your dreams will come true.
+                        So put on a smile, You'll live through your pain.
+                        Know it will pass, And strength you will gain.
+                    </div>
+                </template>
+                <s-button>点击左</s-button>
+            </s-popover>
+            <s-popover position="top" trigger="hover">
+                <template slot="content">
+                    <div>
+                        Never give up, Never lose hope.
+                        Always have faith, It allows you to cope.
+                        Trying times will pass, As they always do.
+                        Just have patience, Your dreams will come true.
+                        So put on a smile, You'll live through your pain.
+                        Know it will pass, And strength you will gain.
+                    </div>
+                </template>
+                <s-button>点击上</s-button>
+            </s-popover>
+            <s-popover position="bottom" trigger="hover">
+                <template slot="content">
+                    <div>
+                        Never give up, Never lose hope.
+                        Always have faith, It allows you to cope.
+                        Trying times will pass, As they always do.
+                        Just have patience, Your dreams will come true.
+                        So put on a smile, You'll live through your pain.
+                        Know it will pass, And strength you will gain.
+                    </div>
+                </template>
+                <s-button>点击下</s-button>
+            </s-popover>
+            <s-popover position="right" trigger="hover">
                 <template slot="content">
                     <div>
                         Never give up, Never lose hope.
