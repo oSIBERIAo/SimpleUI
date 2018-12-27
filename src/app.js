@@ -21,6 +21,8 @@ import TabHead from './tab-head'
 import TabItem from './tab-item'
 import TabPane from './tab-pane'
 
+import Popover from './popover'
+
 
 import plugin from './plugin'
 // import { install } from './plugin'
@@ -46,6 +48,8 @@ Vue.component('s-tab-body', TabBody)
 Vue.component('s-tab-head', TabHead)
 Vue.component('s-tab-item', TabItem)
 Vue.component('s-tab-pane', TabPane)
+
+Vue.component('s-popover', Popover)
 
 Vue.use(plugin)
 // Vue.use(install)
