@@ -1,5 +1,5 @@
 # 简UI————VUE UI组件库
-
+https://travis-ci.com/oSIBERIAo/SimpleUI.svg?branch=master
 [官方文档](https://github.com/oSIBERIAo/SimpleUI)
 
 简洁明了的 UI 框架。
