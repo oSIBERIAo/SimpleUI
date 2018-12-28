@@ -1,6 +1,6 @@
 <template>
     <div class="tab">
-        <slot></solt>
+        <slot><solt>
     </div>
 </template>
 <script>

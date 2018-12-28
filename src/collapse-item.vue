@@ -1,9 +1,9 @@
 <template>
     <div class="collapse-item">
-        <div class="title" @click="onClick">
+        <div class="title" @click="onClick" :data-name="this.name">
             {{title}}
         </div>
-        <div class="content" v-show="visible">
+        <div class="content" v-if="visible">
             <slot></slot>
         </div>
     </div>

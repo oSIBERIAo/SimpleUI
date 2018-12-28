@@ -70,7 +70,7 @@ var app = new Vue({
         current_input: undefined,
         sider_style: 'height: 100px; width: 150px;',
         selectedTab: '2',
-        selectedCollapse: ['1', '2'],
+        selectedCollapse: ['1'],
         selectedCollapse2: ['1'],
     },
     created() {
