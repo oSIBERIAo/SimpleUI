@@ -178,6 +178,7 @@
         border-radius: var(--border-radius);
         background: #FFFFFF;
         filter: drop-shadow(0px 3px 10px rgba(10, 31, 68, 0.08));
+
         &.position-left{
             transform: translateX(-100%) translateY(-50%);
             &::before, &::after{
@@ -189,7 +190,7 @@
                 border-top-color: transparent;
                 border-bottom-color: transparent;
                 border-left-color:  #FFFFFF;
-                border-right-color: #transparent;
+                border-right-color: transparent;
 
                 top: 50%;
                 transform: translateY(-50%);
@@ -246,6 +247,7 @@
                 border-top-color: #FFFFFF;   
             }
         }
+        
         &.position-right{
             transform: translateY(-50%);
             &::before, &::after{
@@ -271,6 +273,7 @@
             }
         }
     }
+
     
     
 </style>

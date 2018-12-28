@@ -4,7 +4,7 @@
             {{title}}
         </div>
         <div class="content" v-show="visible">
-            <slot></solt>
+            <slot></slot>
         </div>
     </div>
 </template>

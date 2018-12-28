@@ -1,6 +1,6 @@
 <template>
     <div class="tab-pane" v-if="active">
-        <slot></solt>
+        <slot></slot>
     </div>
 </template>
 <script>

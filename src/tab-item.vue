@@ -1,6 +1,6 @@
 <template>
     <div class="tab-item" @click="select" :class="activeClass" :data-name="name">
-        <slot></solt>
+        <slot></slot>
     </div>
 </template>
 <script>
