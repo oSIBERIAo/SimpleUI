@@ -23,6 +23,9 @@ import TabPane from './tab-pane'
 
 import Popover from './popover'
 
+import Collapse from './collapse'
+import CollapseItem from './collapse-item'
+
 
 import plugin from './plugin'
 // import { install } from './plugin'
@@ -51,6 +54,9 @@ Vue.component('s-tab-pane', TabPane)
 
 Vue.component('s-popover', Popover)
 
+Vue.component('s-collapse', Collapse)
+Vue.component('s-collapse-item', CollapseItem)
+
 Vue.use(plugin)
 // Vue.use(install)
 
@@ -64,6 +70,8 @@ var app = new Vue({
         current_input: undefined,
         sider_style: 'height: 100px; width: 150px;',
         selectedTab: '2',
+        selectedCollapse: ['1', '2'],
+        selectedCollapse2: ['1'],
     },
     created() {
         // this.$toast('New message on your toast',
