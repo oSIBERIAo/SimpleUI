@@ -32,11 +32,7 @@
         },
         methods: {
             onClick() {
-                if (this.visible) {
-                    this.eventBus.$emit('update:removeSelected', this.name)
-                } else {
-                    this.eventBus.$emit('update:addSelected', this.name)
-                }
+                this.eventBus.$emit('update:onClick', this)
             },
             show() {
                 this.visible = true

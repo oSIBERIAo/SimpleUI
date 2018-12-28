@@ -33,29 +33,31 @@
             },
         },
         mounted() {
-            // console.log('this', this);
             this.eventBus.$emit('update:selected', this.selected)
 
             let selectedClone = JSON.parse(JSON.stringify(this.selected))
 
-            this.eventBus.$on('update:addSelected', (name)=> {       
-                if (this.single) {
-                    selectedClone = [name]
+            this.eventBus.$on('update:onClick', (item)=> {
+                let name = item.name
+
+                if (item.visible) { // 关闭显示当前item
+                    if (this.single) {
+                        selectedClone == [] ? selectedClone = [name] : selectedClone = []
+                    } else {
+                        let index = selectedClone.indexOf(name)
+                        selectedClone.splice(index, 1) 
+                    }
                 } else {
-                    selectedClone.push(name)
+                    if (this.single) {
+                        selectedClone = [name]
+                    } else {
+                        selectedClone.push(name)
+                    }
                 }
 
-                this.updated(selectedClone) 
+                this.updated(selectedClone)  
             })
-            this.eventBus.$on('update:removeSelected', (name)=> {             
-                if (this.single) {
-                    selectedClone = [name]
-                } else {
-                    let index = selectedClone.indexOf(name)
-                    selectedClone.splice(index, 1) 
-                }
-                this.updated(selectedClone)       
-            })         
+                
         },
     }
 </script>
