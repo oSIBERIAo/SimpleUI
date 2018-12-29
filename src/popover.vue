@@ -1,5 +1,4 @@
 <template>
-   <!-- <div ref="popover" class="popover"  @click="popoverTrigger"> -->
     <div ref="popover" class="popover">
         <div ref="content_wrapper" class="content-wrapper" v-show="visible" :class="positionClass">
             <slot name="content" :close="close"></slot>
@@ -113,15 +112,11 @@
                     if (this.trigger === 'click') {
                         document.addEventListener('click', this.onClickDocument)
                     }
-                    if (this.trigger === 'hover') {
-                        console.log('mouseenter');
-                        // this.$refs.content_wrapper.addEventListener('click', this.onClickDocument)
-                    }
+                    if (this.trigger === 'hover') {}
                 })
             },
             popoverTrigger(event){
                 if (event && this.$refs.trigger_wrapper.contains(event.target)) {
-                    // event.stopPropagation();    
                     if (!this.visible) {          
                         this.show()
                     } else {
@@ -143,7 +138,6 @@
                 return `position-${this.position}`
             },
             openEvent() {
-                // console.log(this.trigger);
                 if (this.trigger == 'click') {
                     return 'click'
                 }
@@ -152,7 +146,6 @@
                 }
             },
             closeEvent() {
-                // console.log(this.trigger);
                 if (this.trigger == 'click') {
                     return 'click'
                 }
@@ -171,7 +164,6 @@
     .content-wrapper{
         position: absolute;
         display: inline-block;
-        // margin-top: -25px;
         color: #98A1B1;
         border: 1px solid #00000003;
         padding: 20px;
