@@ -2,7 +2,7 @@
    <!-- <div ref="popover" class="popover"  @click="popoverTrigger"> -->
     <div ref="popover" class="popover">
         <div ref="content_wrapper" class="content-wrapper" v-show="visible" :class="positionClass">
-            <slot name="content"></slot>
+            <slot name="content" :close="close"></slot>
         </div>
         <span ref="trigger_wrapper" style="display: inline-block;">
             <slot></slot>
@@ -68,8 +68,8 @@
                 // console.log('top left',  contentWrapper, style.top,  style.left);
             },
             onClickDocument (e) {
-                let a = e && this.$refs.content_wrapper.contains(e.target)
-                let b = e && this.$refs.trigger_wrapper.contains(e.target)
+                let a = e  && this.$refs.content_wrapper && this.$refs.content_wrapper.contains(e.target)
+                let b = e  && this.$refs.trigger_wrapper && this.$refs.trigger_wrapper.contains(e.target)
                 if (a || b) { //判断点击区域是否为content_wrapper || trigger_wrapper
                     return
                 }
@@ -114,6 +114,7 @@
                         document.addEventListener('click', this.onClickDocument)
                     }
                     if (this.trigger === 'hover') {
+                        console.log('mouseenter');
                         // this.$refs.content_wrapper.addEventListener('click', this.onClickDocument)
                     }
                 })
@@ -247,7 +248,7 @@
                 border-top-color: #FFFFFF;   
             }
         }
-        
+
         &.position-right{
             transform: translateY(-50%);
             &::before, &::after{
