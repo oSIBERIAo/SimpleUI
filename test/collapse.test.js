@@ -115,6 +115,8 @@ describe('Collapse', () => {
                 vm.$el.querySelector('[data-name="2"]').click()
                 setTimeout(() => {
                     expect(callback).to.have.been.called
+                    vm.$el.remove();
+                    vm.$destroy();
                     done()
                 })
             })
