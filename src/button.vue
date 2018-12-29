@@ -29,16 +29,19 @@
     }
 </script>
 <style lang="scss">
+    $font-size: 14px;
+    $button-height: 32px;
+    $border-radius: 4px;
     @keyframes spin {
         0%{ transform: rotate(0deg);}
         100%{ transform: rotate(360deg);}
     }
     .loading { animation: spin 1s infinite linear;}
     .s-button {
-        font-size: var(--font-size);
-        height: var(--button-height);
+        font-size: $font-size;
+        height: $button-height;
         padding: 0 1em;
-        border-radius: var(--border-radius);
+        border-radius: $border-radius;
         border: #2C95FF;
         background:  #2C95FF;
         box-shadow: 0 0 1px 0 rgba(10,31,68,0.08), 0 3px 4px 0 rgba(10,31,68,0.10);
