@@ -59,7 +59,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {},
+    "rules": {
+      "comma-dangle": ["error", "always"]
+    },
     "overrides": [
       {
         "files": [
