@@ -26,6 +26,8 @@ import Popover from './popover'
 import Collapse from './collapse'
 import CollapseItem from './collapse-item'
 
+import Cascader from "./cascader"
+
 
 import plugin from './plugin'
 // import { install } from './plugin'
@@ -57,64 +59,121 @@ Vue.component('s-popover', Popover)
 Vue.component('s-collapse', Collapse)
 Vue.component('s-collapse-item', CollapseItem)
 
+Vue.component("s-cascader", Cascader)
+
 Vue.use(plugin)
 // Vue.use(install)
 
 
 var app = new Vue({
-    el: '#app',
-    data: {
-        loading1: true,
-        loading2: false,
-        loading3: false,
-        current_input: undefined,
-        sider_style: 'height: 100px; width: 150px;',
-        selectedTab: '2',
-        selectedCollapse: ['1'],
-        selectedCollapse2: ['1'],
+  el: "#app",
+  data: {
+    loading1: true,
+    loading2: false,
+    loading3: false,
+    current_input: undefined,
+    sider_style: "height: 100px; width: 150px;",
+    selectedTab: "2",
+    selectedCollapse: ["1"],
+    selectedCollapse2: ["1"],
+    source: [
+      {
+        name: "一一",
+        children: [
+          {
+            name: "一二",
+            children: [
+              {
+                name: "一三",
+              },
+              {
+                name: "一三",
+              },
+              {
+                name: "一三",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "二一",
+        children: [
+          {
+            name: "二二",
+            children: [
+              {
+                name: "二三",
+              },
+            ],
+          },
+          {
+            name: "二二",
+            children: [
+              {
+                name: "二三",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "三一",
+        children: [
+          {
+            name: "三二",
+            children: [
+              {
+                name: "三三",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  created() {
+    // this.$toast('New message on your toast',
+    //     {
+    //         closeButton: {
+    //             text: "关闭",
+    //             callback: (toast) => {
+    //                 toast.close()
+    //             }
+    //         },
+    //         autoClose: 3,
+    //         buttonVisible: true,
+    //     })
+  },
+  methods: {
+    yyy() {
+      console.log("yyy")
     },
-    created() {
-        // this.$toast('New message on your toast',
-        //     {
-        //         closeButton: {
-        //             text: "关闭",
-        //             callback: (toast) => {
-        //                 toast.close()
-        //             }
-        //         },
-        //         autoClose: 3,
-        //         buttonVisible: true,
-        //     })
+    showToastTop() {
+      this.$toast("<strong>New message on your toast</strong>", {
+        buttonVisible: true,
+        autoClose: false,
+        useHtml: true,
+        position: "top",
+      })
     },
-    methods: {
-        yyy() {
-            console.log('yyy');
-        },
-        showToastTop() {
-            this.$toast('<strong>New message on your toast</strong>', {
-                buttonVisible: true,
-                autoClose: false,
-                useHtml: true,
-                position: 'top',
-            })
-        },
-        showToastCenter() {
-            this.$toast('<strong>New message on your toast</strong>', {
-                buttonVisible: true,
-                autoClose: false,
-                useHtml: true,
-                position: 'center',
-            })
-        },
-        showToastDown() {
-            this.$toast('<strong>New message on your toast</strong>', {
-                buttonVisible: true,
-                autoClose: false,
-                useHtml: true,
-                position: 'down',
-            })
-        }        
-    }
+    showToastCenter() {
+      this.$toast("<strong>New message on your toast</strong>", {
+        buttonVisible: true,
+        autoClose: false,
+        useHtml: true,
+        position: "center",
+      })
+    },
+    showToastDown() {
+      this.$toast("<strong>New message on your toast</strong>", {
+        buttonVisible: true,
+        autoClose: false,
+        useHtml: true,
+        position: "down",
+      })
+    },
+  },
 })
 
 

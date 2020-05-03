@@ -86,12 +86,16 @@
         <br><br><br><br><br><br><br><br> -->
 
         <!-- <div style="height: 2000px; width:2000px;"></div> -->
-
+        <br><br><br>
+        <s-cascader :source='source' popover-height='200px'></s-cascader>
+        <s-cascader :source='source'></s-cascader>
+        <br><br><br>
+        
 
         <br><br><br>
         <div style="display: flex; justify-content: center; align-items: center;">
             <s-popover position="left">
-                <template slot="content">
+                <template slot="content" slot-scope="{close}">
                     <div>
                         Never give up, Never lose hope.
                         Always have faith, It allows you to cope.
@@ -100,6 +104,8 @@
                         So put on a smile, You'll live through your pain.
                         Know it will pass, And strength you will gain.
                     </div>
+                    <br>
+                    <s-button @click="close">关闭</s-button>
                 </template>
                 <s-button>点击左</s-button>
             </s-popover>
@@ -213,7 +219,9 @@
             <s-collapse-item title="标题3" name="3">内容</s-collapse-item>
         </s-collapse>
         <!-- <s-toast></s-toast> -->
+
     </div>
+
 
 <script>
     const log = console.log.bind(console);
