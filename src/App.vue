@@ -107,7 +107,14 @@
     <br /><br /><br />
     <br /><br />
     <br /><br /><br />
-    <s-cascader :source="source" popover-height="200px"></s-cascader>
+    <!-- {{ this.selectedCascader }} -->
+    <br /><br /><br />
+    <s-cascader
+      :source="source"
+      :selected="selectedCascader"
+      @update:selected="selectedCascader = $event"
+      popover-height="200px"
+    ></s-cascader>
     <s-cascader :source="source"></s-cascader>
     <br /><br /><br />
     <h6>single:{{ selectedCollapse }}</h6>
@@ -207,6 +214,8 @@ export default {
       selectedTab: "2",
       selectedCollapse: ["1"],
       selectedCollapse2: ["1"],
+      selectedCascader: [],
+      haha: [],
       source: [
         {
           name: "一一",

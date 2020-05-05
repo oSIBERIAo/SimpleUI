@@ -1,13 +1,20 @@
 <template>
   <div class="cascader-items" :style="{ height: height }">
+    <!-- {{this.selected}} -->
     <div class="left">
-      <div class="label" v-for="item in items" @click="leftSelected = item">
+      <div class="label" v-for="item in items" @click="onclickLabel(item)">
         <span class="name">{{ item.name }}</span>
         <s-icon v-if="item.children" name="right"></s-icon>
       </div>
     </div>
     <div class="right" v-if="righrItems">
-      <s-cascader-items :items="righrItems" :height="height"></s-cascader-items>
+      <s-cascader-items
+        :level="level + 1"
+        :items="righrItems"
+        :height="height"
+        :selected="selected"
+        @update:selected="onUpdateSelected"
+      ></s-cascader-items>
     </div>
   </div>
 </template>
@@ -26,16 +33,42 @@ export default {
     height: {
       type: String,
     },
+    level: {
+      type: Number,
+      default: 0,
+    },
+    selected: {
+      type: Array,
+      default: () => {
+        return []
+      },
+    },
   },
   data() {
     return {
       leftSelected: null,
     }
   },
+  methods: {
+    onclickLabel(item) {
+      console.log(item)
+      let s = JSON.parse(JSON.stringify(this.selected))
+      s[this.level] = item
+      s.splice(this.level + 1)
+      console.log("this.level", this.level)
+      console.log("this.sel", s)
+      this.$emit("update:selected", s)
+    },
+    onUpdateSelected(newSelected) {
+      this.$emit("update:selected", newSelected)
+    },
+  },
   computed: {
     righrItems() {
-      if (this.leftSelected && this.leftSelected.children) {
-        return this.leftSelected.children
+      let currentSelected = this.selected[this.level]
+      if (currentSelected && currentSelected.children) {
+        console.log("righrItems", this.selected[this.level])
+        return currentSelected.children
       } else {
         return null
       }
@@ -59,18 +92,18 @@ export default {
     // border-radius: $border-radius;
     // border: 1px solid;
     .label {
-      padding: 0.3em 1em;
+      padding: 0.5em 1em;
       display: flex;
       align-items: center;
+      cursor: pointer;
+      white-space: nowrap;
       .s-icon {
-        // transform: scale(0.8);
-        margin: 0 0 0 0;
+        margin: 0 -0.5em 0 0;
       }
     }
   }
   .right {
     height: 100%;
-    width: 100%;
     white-space: nowrap;
     display: inline-flex;
     // border-radius: $border-radius;
