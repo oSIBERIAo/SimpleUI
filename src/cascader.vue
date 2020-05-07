@@ -3,7 +3,7 @@
     <div class="trigger" @click="popoverVisible = !popoverVisible">
       <!-- {{ source[1].name }} -->
       <!-- {{ popoverHeight }} -->
-      {{ result || '&nbsp;'}}
+      {{ result || "&nbsp;" }}
     </div>
     <div class="popover-wrapper" v-if="popoverVisible">
       <cascader-items
@@ -19,6 +19,7 @@
 </template>
 <script>
 import CascaderItems from "./cascader-items"
+
 export default {
   name: "Cascader",
   components: {
@@ -58,12 +59,14 @@ export default {
 </script>
 <style scoped lang="scss">
 @import "var";
+
 .s-cascader {
   // border: 1px solid red;
   display: inline-block;
   // display: inline-flex;
   margin: 10px;
   position: relative;
+
   .trigger {
     align-items: center;
     border-radius: $border-radius;
@@ -73,6 +76,7 @@ export default {
     min-width: 10em;
     padding: 0 1em;
   }
+
   .popover-wrapper {
     @extend .box-shadow;
     background: white;
@@ -80,6 +84,7 @@ export default {
     left: 0;
     position: absolute;
     top: 100%;
+
     .label {
       white-space: nowrap;
     }

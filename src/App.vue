@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <button @click="showToastTop" style="height:50px; width:50px;">top</button>
-    <button @click="showToastCenter" style="height:50px; width:50px;">
+    <button @click="showToastTop" style="height: 50px; width: 50px;">
+      top
+    </button>
+    <button @click="showToastCenter" style="height: 50px; width: 50px;">
       center
     </button>
-    <button @click="showToastDown" style="height:50px; width:50px;">
+    <button @click="showToastDown" style="height: 50px; width: 50px;">
       down
     </button>
 
@@ -111,10 +113,11 @@
     <br /><br /><br />
     <s-cascader
       :source="source"
-      :selected="selectedCascader"
-      @update:selected="selectedCascader = $event"
+      :selected.sync="selectedCascader"
+      @update:selected="xxx"
       popover-height="200px"
     ></s-cascader>
+    <!-- @update:selected="selectedCascader = $event" -->
     <s-cascader :source="source"></s-cascader>
     <br /><br /><br />
     <h6>single:{{ selectedCollapse }}</h6>
@@ -139,69 +142,77 @@
 </template>
 
 <script>
-import Vue from "vue"
-import Button from "./button"
-import Icon from "./icon"
-import ButtonGroup from "./button-group"
-import Input from "./input"
+import Vue from "vue";
+import Button from "./button";
+import Icon from "./icon";
+import ButtonGroup from "./button-group";
+import Input from "./input";
 
-import Row from "./row"
-import Col from "./col"
+import Row from "./row";
+import Col from "./col";
 
-import Layout from "./layout"
-import Header from "./header"
-import Sider from "./sider"
-import Content from "./content"
-import Footer from "./footer"
+import Layout from "./layout";
+import Header from "./header";
+import Sider from "./sider";
+import Content from "./content";
+import Footer from "./footer";
 
-import Toast from "./toast"
+import Toast from "./toast";
 
-import Tab from "./tab"
-import TabBody from "./tab-body"
-import TabHead from "./tab-head"
-import TabItem from "./tab-item"
-import TabPane from "./tab-pane"
+import Tab from "./tab";
+import TabBody from "./tab-body";
+import TabHead from "./tab-head";
+import TabItem from "./tab-item";
+import TabPane from "./tab-pane";
 
-import Popover from "./popover"
+import Popover from "./popover";
 
-import Collapse from "./collapse"
-import CollapseItem from "./collapse-item"
+import Collapse from "./collapse";
+import CollapseItem from "./collapse-item";
 
-import Cascader from "./cascader"
+import Cascader from "./cascader";
 
-import plugin from "./plugin"
+import plugin from "./plugin";
 // import { install } from './plugin'
 
-Vue.component("s-button", Button)
-Vue.component("s-icon", Icon)
-Vue.component("s-button-group", ButtonGroup)
-Vue.component("s-input", Input)
+Vue.component("s-button", Button);
+Vue.component("s-icon", Icon);
+Vue.component("s-button-group", ButtonGroup);
+Vue.component("s-input", Input);
 
-Vue.component("s-row", Row)
-Vue.component("s-col", Col)
+Vue.component("s-row", Row);
+Vue.component("s-col", Col);
 
-Vue.component("s-layout", Layout)
-Vue.component("s-header", Header)
-Vue.component("s-sider", Sider)
-Vue.component("s-content", Content)
-Vue.component("s-footer", Footer)
+Vue.component("s-layout", Layout);
+Vue.component("s-header", Header);
+Vue.component("s-sider", Sider);
+Vue.component("s-content", Content);
+Vue.component("s-footer", Footer);
 
-Vue.component("s-toast", Toast)
+Vue.component("s-toast", Toast);
 
-Vue.component("s-tab", Tab)
-Vue.component("s-tab-body", TabBody)
-Vue.component("s-tab-head", TabHead)
-Vue.component("s-tab-item", TabItem)
-Vue.component("s-tab-pane", TabPane)
+Vue.component("s-tab", Tab);
+Vue.component("s-tab-body", TabBody);
+Vue.component("s-tab-head", TabHead);
+Vue.component("s-tab-item", TabItem);
+Vue.component("s-tab-pane", TabPane);
 
-Vue.component("s-popover", Popover)
+Vue.component("s-popover", Popover);
 
-Vue.component("s-collapse", Collapse)
-Vue.component("s-collapse-item", CollapseItem)
+Vue.component("s-collapse", Collapse);
+Vue.component("s-collapse-item", CollapseItem);
 
-Vue.component("s-cascader", Cascader)
+Vue.component("s-cascader", Cascader);
 
-Vue.use(plugin)
+Vue.use(plugin);
+import db from "./db";
+function ajax(parentId = 0) {
+  return new Promise((success, fail) => {
+    let result = db.filter((item) => item.parent_id == parentId);
+    success(result);
+  });
+}
+console.log(ajax());
 export default {
   name: "App",
   data() {
@@ -216,79 +227,31 @@ export default {
       selectedCollapse2: ["1"],
       selectedCascader: [],
       haha: [],
-      source: [
-        {
-          name: "一一",
-          children: [
-            {
-              name: "一二",
-              children: [
-                {
-                  name: "一三",
-                },
-                {
-                  name: "一三",
-                },
-                {
-                  name: "一三",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          name: "二一",
-          children: [
-            {
-              name: "二二",
-              children: [
-                {
-                  name: "二三",
-                },
-              ],
-            },
-            {
-              name: "二二",
-              children: [
-                {
-                  name: "二三",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          name: "三一",
-          children: [
-            {
-              name: "三二",
-              children: [
-                {
-                  name: "三三",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    }
+      source: [],
+    };
   },
   created() {
-    // this.$toast('New message on your toast',
-    //     {
-    //         closeButton: {
-    //             text: "关闭",
-    //             callback: (toast) => {
-    //                 toast.close()
-    //             }
-    //         },
-    //         autoClose: 3,
-    //         buttonVisible: true,
-    //     })
+    ajax(0).then((result) => {
+      this.source = result;
+    });
   },
   methods: {
+    xxx() {
+      console.log("selectedCascader", this.selectedCascader);
+      ajax(this.selectedCascader[0].id).then((result) => {
+        // console.log('xxxxx1', result);
+        // console.log('xxxxx', this.source.filter(item => item.id === this.selectedCascader[0].id))
+        let lastLevelSelected = this.source.filter(
+          (item) => item.id === this.selectedCascader[0].id
+        )[0];
+        console.log(lastLevelSelected === this.source[0]);
+        this.$set(lastLevelSelected, "children", result);
+        console.log("lastLevelSelected", lastLevelSelected);
+        console.log("lastLevelSelected2", this.source);
+      });
+    },
     yyy() {
-      console.log("yyy")
+      console.log("yyy");
     },
     showToastTop() {
       this.$toast("<strong>New message on your toast</strong>", {
@@ -296,7 +259,7 @@ export default {
         autoClose: false,
         useHtml: true,
         position: "top",
-      })
+      });
     },
     showToastCenter() {
       this.$toast("<strong>New message on your toast</strong>", {
@@ -304,7 +267,7 @@ export default {
         autoClose: false,
         useHtml: true,
         position: "center",
-      })
+      });
     },
     showToastDown() {
       this.$toast("<strong>New message on your toast</strong>", {
@@ -312,10 +275,10 @@ export default {
         autoClose: false,
         useHtml: true,
         position: "down",
-      })
+      });
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

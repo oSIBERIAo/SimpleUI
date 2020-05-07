@@ -7,10 +7,10 @@
         <s-icon v-if="item.children" name="right"></s-icon>
       </div>
     </div>
-    <div class="right" v-if="righrItems">
+    <div class="right" v-if="rightItems">
       <s-cascader-items
         :level="level + 1"
-        :items="righrItems"
+        :items="rightItems"
         :height="height"
         :selected="selected"
         @update:selected="onUpdateSelected"
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Icon from "./icon"
+import Icon from "./icon";
 export default {
   name: "SCascaderItems",
   components: {
@@ -40,41 +40,41 @@ export default {
     selected: {
       type: Array,
       default: () => {
-        return []
+        return [];
       },
     },
   },
   data() {
     return {
       leftSelected: null,
-    }
+    };
   },
   methods: {
     onclickLabel(item) {
-      console.log(item)
-      let s = JSON.parse(JSON.stringify(this.selected))
-      s[this.level] = item
-      s.splice(this.level + 1)
-      console.log("this.level", this.level)
-      console.log("this.sel", s)
-      this.$emit("update:selected", s)
+      console.log(item);
+      let s = JSON.parse(JSON.stringify(this.selected));
+      s[this.level] = item;
+      s.splice(this.level + 1);
+      console.log("this.level", this.level);
+      console.log("this.sel", s);
+      this.$emit("update:selected", s);
     },
     onUpdateSelected(newSelected) {
-      this.$emit("update:selected", newSelected)
+      this.$emit("update:selected", newSelected);
     },
   },
   computed: {
-    righrItems() {
-      let currentSelected = this.selected[this.level]
+    rightItems() {
+      let currentSelected = this.selected[this.level];
       if (currentSelected && currentSelected.children) {
-        console.log("righrItems", this.selected[this.level])
-        return currentSelected.children
+        console.log("rightItems", this.selected[this.level]);
+        return currentSelected.children;
       } else {
-        return null
+        return null;
       }
     },
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
