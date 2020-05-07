@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Button from './button'
 import Icon from './icon'
 import ButtonGroup from './button-group'
-import Input from "./input"
+import Input from './input'
 
-import Row from "./row"
-import Col from "./col"
+import Row from './row'
+import Col from './col'
 
 import Layout from './layout'
 import Header from './header'
@@ -26,8 +26,7 @@ import Popover from './popover'
 import Collapse from './collapse'
 import CollapseItem from './collapse-item'
 
-import Cascader from "./cascader"
-
+import Cascader from './cascader'
 
 import plugin from './plugin'
 // import { install } from './plugin'
@@ -35,10 +34,10 @@ import plugin from './plugin'
 Vue.component('s-button', Button)
 Vue.component('s-icon', Icon)
 Vue.component('s-button-group', ButtonGroup)
-Vue.component("s-input", Input)
+Vue.component('s-input', Input)
 
-Vue.component("s-row", Row)
-Vue.component("s-col", Col)
+Vue.component('s-row', Row)
+Vue.component('s-col', Col)
 
 Vue.component('s-layout', Layout)
 Vue.component('s-header', Header)
@@ -59,123 +58,121 @@ Vue.component('s-popover', Popover)
 Vue.component('s-collapse', Collapse)
 Vue.component('s-collapse-item', CollapseItem)
 
-Vue.component("s-cascader", Cascader)
+Vue.component('s-cascader', Cascader)
 
 Vue.use(plugin)
 // Vue.use(install)
 
-
 var app = new Vue({
-  el: "#app",
-  data: {
-    loading1: true,
-    loading2: false,
-    loading3: false,
-    current_input: undefined,
-    sider_style: "height: 100px; width: 150px;",
-    selectedTab: "2",
-    selectedCollapse: ["1"],
-    selectedCollapse2: ["1"],
-    source: [
-      {
-        name: "一一",
-        children: [
-          {
-            name: "一二",
-            children: [
-              {
-                name: "一三",
-              },
-              {
-                name: "一三",
-              },
-              {
-                name: "一三",
-              },
-            ],
-          },
+    el: '#app',
+    data: {
+        loading1: true,
+        loading2: false,
+        loading3: false,
+        current_input: undefined,
+        sider_style: 'height: 100px; width: 150px;',
+        selectedTab: '2',
+        selectedCollapse: ['1'],
+        selectedCollapse2: ['1'],
+        source: [
+            {
+                name: '一一',
+                children: [
+                    {
+                        name: '一二',
+                        children: [
+                            {
+                                name: '一三',
+                            },
+                            {
+                                name: '一三',
+                            },
+                            {
+                                name: '一三',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                name: '二一',
+                children: [
+                    {
+                        name: '二二',
+                        children: [
+                            {
+                                name: '二三',
+                            },
+                        ],
+                    },
+                    {
+                        name: '二二',
+                        children: [
+                            {
+                                name: '二三',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                name: '三一',
+                children: [
+                    {
+                        name: '三二',
+                        children: [
+                            {
+                                name: '三三',
+                            },
+                        ],
+                    },
+                ],
+            },
         ],
-      },
-      {
-        name: "二一",
-        children: [
-          {
-            name: "二二",
-            children: [
-              {
-                name: "二三",
-              },
-            ],
-          },
-          {
-            name: "二二",
-            children: [
-              {
-                name: "二三",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        name: "三一",
-        children: [
-          {
-            name: "三二",
-            children: [
-              {
-                name: "三三",
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  created() {
-    // this.$toast('New message on your toast',
-    //     {
-    //         closeButton: {
-    //             text: "关闭",
-    //             callback: (toast) => {
-    //                 toast.close()
-    //             }
-    //         },
-    //         autoClose: 3,
-    //         buttonVisible: true,
-    //     })
-  },
-  methods: {
-    yyy() {
-      console.log("yyy")
     },
-    showToastTop() {
-      this.$toast("<strong>New message on your toast</strong>", {
-        buttonVisible: true,
-        autoClose: false,
-        useHtml: true,
-        position: "top",
-      })
+    created() {
+        // this.$toast('New message on your toast',
+        //     {
+        //         closeButton: {
+        //             text: "关闭",
+        //             callback: (toast) => {
+        //                 toast.close()
+        //             }
+        //         },
+        //         autoClose: 3,
+        //         buttonVisible: true,
+        //     })
     },
-    showToastCenter() {
-      this.$toast("<strong>New message on your toast</strong>", {
-        buttonVisible: true,
-        autoClose: false,
-        useHtml: true,
-        position: "center",
-      })
+    methods: {
+        yyy() {
+            console.log('yyy')
+        },
+        showToastTop() {
+            this.$toast('<strong>New message on your toast</strong>', {
+                buttonVisible: true,
+                autoClose: false,
+                useHtml: true,
+                position: 'top',
+            })
+        },
+        showToastCenter() {
+            this.$toast('<strong>New message on your toast</strong>', {
+                buttonVisible: true,
+                autoClose: false,
+                useHtml: true,
+                position: 'center',
+            })
+        },
+        showToastDown() {
+            this.$toast('<strong>New message on your toast</strong>', {
+                buttonVisible: true,
+                autoClose: false,
+                useHtml: true,
+                position: 'down',
+            })
+        },
     },
-    showToastDown() {
-      this.$toast("<strong>New message on your toast</strong>", {
-        buttonVisible: true,
-        autoClose: false,
-        useHtml: true,
-        position: "down",
-      })
-    },
-  },
 })
-
 
 //单元测试
 
@@ -190,8 +187,8 @@ var expect = chai.expect
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
         propsData: {
-            icon: 'setting'
-        }
+            icon: 'setting',
+        },
     })
     vm.$mount()
     let useElement = vm.$el.querySelector('use')
@@ -205,8 +202,8 @@ var expect = chai.expect
     const vm = new Constructor({
         propsData: {
             icon: 'settings',
-            loading: true
-        }
+            loading: true,
+        },
     })
     vm.$mount()
     let useElement = vm.$el.querySelector('use')
@@ -224,7 +221,7 @@ var expect = chai.expect
         propsData: {
             icon: 'settings',
             loading: true,
-        }
+        },
     })
     vm.$mount(div)
     let svgElement = vm.$el.querySelector('svg')
@@ -244,7 +241,7 @@ var expect = chai.expect
             icon: 'settings',
             loading: true,
             icon_position: 'right',
-        }
+        },
     })
     vm.$mount(div)
     let svgElement = vm.$el.querySelector('svg')
@@ -260,10 +257,10 @@ var expect = chai.expect
     const vm = new Constructor({
         propsData: {
             icon: 'settings',
-        }
+        },
     })
     vm.$mount()
-    let spy = chai.spy(function () { });
+    let spy = chai.spy(function () {})
     vm.$on('click', spy)
     // 函数被执行
     let button = vm.$el
@@ -275,102 +272,99 @@ var expect = chai.expect
 
 // input.vue
 {
-  const Constructor = Vue.extend(Input);
-  const vm = new Constructor({
-    propsData: {
-      error: "出错了",
-    }
-  });
-  vm.$mount();
-  // 函数被执行
-  let useElement = vm.$el.querySelector("use");
-  let href = useElement.getAttribute("xlink:href");
-  expect(href).to.equal("#icon-alert");
-  vm.$el.remove();
-  vm.$destroy();
+    const Constructor = Vue.extend(Input)
+    const vm = new Constructor({
+        propsData: {
+            error: '出错了',
+        },
+    })
+    vm.$mount()
+    // 函数被执行
+    let useElement = vm.$el.querySelector('use')
+    let href = useElement.getAttribute('xlink:href')
+    expect(href).to.equal('#icon-alert')
+    vm.$el.remove()
+    vm.$destroy()
 }
 {
-    const Constructor = Vue.extend(Input);
+    const Constructor = Vue.extend(Input)
     const vm = new Constructor({
         propsData: {
             disabled: true,
-        }
-    });
-    vm.$mount();
+        },
+    })
+    vm.$mount()
 
-    let input = vm.$el.querySelector("input");
-    var a = input.className.indexOf("disabled") > -1
+    let input = vm.$el.querySelector('input')
+    var a = input.className.indexOf('disabled') > -1
 
-    expect(a).to.equal(a);
-    vm.$el.remove();
-    vm.$destroy();
+    expect(a).to.equal(a)
+    vm.$el.remove()
+    vm.$destroy()
 }
 {
-    const Constructor = Vue.extend(Input);
+    const Constructor = Vue.extend(Input)
     const vm = new Constructor({
         propsData: {
             readonly: true,
-        }
-    });
-    vm.$mount();
+        },
+    })
+    vm.$mount()
 
-    let input = vm.$el.querySelector("input");
+    let input = vm.$el.querySelector('input')
 
     var a = input.readOnly
-    expect(a).to.equal(true);
+    expect(a).to.equal(true)
 
-    vm.$el.remove();
-    vm.$destroy();
+    vm.$el.remove()
+    vm.$destroy()
 }
 {
-    const Constructor = Vue.extend(Input);
+    const Constructor = Vue.extend(Input)
     const vm = new Constructor({
         propsData: {
-            error: "出错了",
-        }
-    });
-    vm.$mount();
+            error: '出错了',
+        },
+    })
+    vm.$mount()
 
-    let useElement = vm.$el.querySelector("use");
-    let href = useElement.getAttribute("xlink:href");
-    expect(href).to.equal("#icon-alert");
+    let useElement = vm.$el.querySelector('use')
+    let href = useElement.getAttribute('xlink:href')
+    expect(href).to.equal('#icon-alert')
 
-    let input = vm.$el.querySelector("input");
-    var a = input.className.indexOf("error") > -1
-    expect(a).to.equal(true);
+    let input = vm.$el.querySelector('input')
+    var a = input.className.indexOf('error') > -1
+    expect(a).to.equal(true)
 
-    let spen = vm.$el.getElementsByTagName("SPAN")[0]
-    expect(spen.innerText).to.equal("出错了");
+    let spen = vm.$el.getElementsByTagName('SPAN')[0]
+    expect(spen.innerText).to.equal('出错了')
 
-    vm.$el.remove();
-    vm.$destroy();
+    vm.$el.remove()
+    vm.$destroy()
 }
 {
-    const Constructor = Vue.extend(Input);
+    const Constructor = Vue.extend(Input)
     const vm = new Constructor({
-        propsData: {
-        }
-    });
-    vm.$mount();
+        propsData: {},
+    })
+    vm.$mount()
 
-    let input = vm.$el.querySelector("input");
-    var event = document.createEvent('Event');
-    event.initEvent('input', true, true);
-    var a = input.dispatchEvent(event);
+    let input = vm.$el.querySelector('input')
+    var event = document.createEvent('Event')
+    event.initEvent('input', true, true)
+    var a = input.dispatchEvent(event)
 
-    expect(a).to.equal(true);
-    vm.$el.remove();
-    vm.$destroy();
-
+    expect(a).to.equal(true)
+    vm.$el.remove()
+    vm.$destroy()
 }
 
 {
-    const Constructor = Vue.extend(Input);
+    const Constructor = Vue.extend(Input)
     const vm = new Constructor({
-        propsData: {
-        }
-    });
-    vm.$mount();
+        propsData: {},
+    })
+    vm.$mount()
     let num = 0
     // let callback = function(e) {
     //     console.log('e', e);
@@ -379,35 +373,33 @@ var expect = chai.expect
     //     };
     // }
     function callback() {
-        let e  = true
+        let e = true
         if (e) {
             num += 1
-        };
+        }
     }
     vm.$on('input', callback)
 
-    let input = vm.$el.querySelector("input");
+    let input = vm.$el.querySelector('input')
 
     // IE
-    var eventA = document.createEvent('Event');
-    eventA.initEvent('input', true, true);
-    var a = input.dispatchEvent(eventA);
+    var eventA = document.createEvent('Event')
+    eventA.initEvent('input', true, true)
+    var a = input.dispatchEvent(eventA)
 
     let eventB = new Event('input', {
-        'bubbles': true,
-        'cancelable': true
-    });
+        bubbles: true,
+        cancelable: true,
+    })
 
-    var b = input.dispatchEvent(eventB);
-    expect(b).to.equal(true);
-    
+    var b = input.dispatchEvent(eventB)
+    expect(b).to.equal(true)
+
     // expect(num).to.equal(2)
 
-    vm.$el.remove();
-    vm.$destroy();
+    vm.$el.remove()
+    vm.$destroy()
 }
-
-
 
 //row&col
 {
@@ -421,19 +413,35 @@ var expect = chai.expect
     `
     document.body.appendChild(div)
     let vm = new Constructor({})
-    
+
     vm.$mount(div)
 
     let judge = true
 
     let col = vm.$el.querySelectorAll('.col')
     let judgeClassList = [
-        ["col", "col-12", "col-xs-12", "offset-xs-12", "col-sm-10", "col-lg-6", "col-xl-4",],
-        ["col", "col-12", "col-xs-12", "offset-xs-12", "col-sm-14", "col-lg-18", "col-xl-20"],
+        [
+            'col',
+            'col-12',
+            'col-xs-12',
+            'offset-xs-12',
+            'col-sm-10',
+            'col-lg-6',
+            'col-xl-4',
+        ],
+        [
+            'col',
+            'col-12',
+            'col-xs-12',
+            'offset-xs-12',
+            'col-sm-14',
+            'col-lg-18',
+            'col-xl-20',
+        ],
     ]
 
     //验证classList是否预期
-    for (let i = 0; i < col.length; i++) {     
+    for (let i = 0; i < col.length; i++) {
         col[i].classList.forEach((style) => {
             if (!judgeClassList[i].includes(style)) {
                 judge = false
@@ -444,11 +452,11 @@ var expect = chai.expect
 
     let row = vm.$el.querySelectorAll('.s-row')
 
-    let rowStyle = row[0].style.cssText.split(';').filter(e => { return e != ""})
+    let rowStyle = row[0].style.cssText.split(';').filter((e) => {
+        return e != ''
+    })
     // console.log('rowStyle', rowStyle);
-    let judgeCssText = [
-        "margin-left: -10px", " margin-right: -10px",
-    ]
+    let judgeCssText = ['margin-left: -10px', ' margin-right: -10px']
     rowStyle.forEach((style) => {
         if (!judgeCssText.includes(style)) {
             log('style!!!', style)
@@ -457,6 +465,6 @@ var expect = chai.expect
     })
 
     expect(judge).to.equal(true)
-    vm.$el.remove();
-    vm.$destroy();
+    vm.$el.remove()
+    vm.$destroy()
 }

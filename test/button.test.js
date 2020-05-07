@@ -1,9 +1,9 @@
-const expect = chai.expect;
+const expect = chai.expect
 import Vue from 'vue'
 import Button from '../src/button'
 import Icon from '../src/icon'
 import ButtonGroup from '../src/button-group'
-import Input from "../src/input";
+import Input from '../src/input'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
@@ -17,8 +17,8 @@ describe('Button', () => {
         const Constructor = Vue.extend(Button)
         const vm = new Constructor({
             propsData: {
-                icon: 'settings'
-            }
+                icon: 'settings',
+            },
         }).$mount()
         const useElement = vm.$el.querySelector('use')
         expect(useElement.getAttribute('xlink:href')).to.equal('#icon-settings')
@@ -30,12 +30,14 @@ describe('Button', () => {
         const vm = new Constructor({
             propsData: {
                 icon: 'settings',
-                loading: true
-            }
+                loading: true,
+            },
         }).$mount()
         const useElements = vm.$el.querySelectorAll('use')
         expect(useElements.length).to.equal(1)
-        expect(useElements[0].getAttribute('xlink:href')).to.equal('#icon-loading')
+        expect(useElements[0].getAttribute('xlink:href')).to.equal(
+            '#icon-loading'
+        )
         vm.$destroy()
     })
 
@@ -46,7 +48,7 @@ describe('Button', () => {
         const vm = new Constructor({
             propsData: {
                 icon: 'settings',
-            }
+            },
         }).$mount(div)
         const icon = vm.$el.querySelector('svg')
         expect(getComputedStyle(icon).order).to.eq('0')
@@ -61,27 +63,26 @@ describe('Button', () => {
         const vm = new Constructor({
             propsData: {
                 icon: 'settings',
-                icon_position: 'right'
-            }
+                icon_position: 'right',
+            },
         }).$mount(div)
         const icon = vm.$el.querySelector('svg')
         expect(getComputedStyle(icon).order).to.eq('1')
         vm.$el.remove()
         vm.$destroy()
     })
-    
+
     it('点击 button 触发 click 事件', () => {
         const Constructor = Vue.extend(Button)
         const vm = new Constructor({
             propsData: {
                 icon: 'settings',
-            }
+            },
         }).$mount()
 
-        const callback = sinon.fake();
+        const callback = sinon.fake()
         vm.$on('click', callback)
         vm.$el.click()
         expect(callback).to.have.been.called
-
     })
 })

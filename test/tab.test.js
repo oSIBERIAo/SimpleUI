@@ -1,4 +1,4 @@
-const expect = chai.expect;
+const expect = chai.expect
 import Vue from 'vue'
 
 import Tab from '../src/tab'
@@ -7,8 +7,8 @@ import TabHead from '../src/tab-head'
 import TabItem from '../src/tab-item'
 import TabPane from '../src/tab-pane'
 
-import { callbackify, log } from 'util';
-import { eventNames } from 'cluster';
+import { callbackify, log } from 'util'
+import { eventNames } from 'cluster'
 
 Vue.component('s-tab', Tab)
 Vue.component('s-tab-body', TabBody)
@@ -20,7 +20,7 @@ Vue.config.productionTip = false
 Vue.config.devtools = false
 
 describe('Input', () => {
-    it("Tab 等全部存在", () => {
+    it('Tab 等全部存在', () => {
         expect(Tab).to.exist
         expect(TabBody).to.exist
         expect(TabHead).to.exist
@@ -33,7 +33,7 @@ describe('Input', () => {
         //     vm.$el.remove();
         //     vm.$destroy()
         // })
-        it("Tab", (done) => {
+        it('Tab', (done) => {
             const Constructor = Vue.extend()
             let div = document.createElement('div')
             div.innerHTML = `
@@ -52,7 +52,7 @@ describe('Input', () => {
             `
             document.body.appendChild(div)
             let vm = new Constructor({
-                el: div
+                el: div,
             })
             vm.$mount(div)
             vm.$nextTick(() => {
@@ -60,26 +60,26 @@ describe('Input', () => {
                 expect(e.classList.contains('active')).to.be.true
                 done()
             })
-            vm.$el.remove();
+            vm.$el.remove()
             vm.$destroy()
         })
-        it("TabItem 接受 name 属性", () => {
+        it('TabItem 接受 name 属性', () => {
             const Constructor = Vue.extend(TabItem)
             const vm = new Constructor({
                 propsData: {
                     name: 'test',
-                }
+                },
             }).$mount()
             expect(vm.$el.getAttribute('data-name')).to.eq('test')
-            vm.$el.remove();
+            vm.$el.remove()
             vm.$destroy()
-        });
-        it("TabItem 接受 disabled 属性", () => {
+        })
+        it('TabItem 接受 disabled 属性', () => {
             const Constructor = Vue.extend(TabItem)
             const vm = new Constructor({
                 propsData: {
                     disabled: true,
-                }
+                },
             }).$mount()
             expect(vm.$el.classList.contains('disabled')).to.eq(true)
 
@@ -87,9 +87,8 @@ describe('Input', () => {
             vm.$on('click', callback)
             vm.$el.click()
             expect(callback).to.have.not.been.called
-            vm.$el.remove();
+            vm.$el.remove()
             vm.$destroy()
-        });
+        })
     })
-
 })

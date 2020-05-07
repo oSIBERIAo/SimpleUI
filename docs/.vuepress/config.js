@@ -5,7 +5,7 @@ module.exports = {
     postcss: {
         plugins: [
             // require('postcss-preset-env')({/*plugin options*/ })
-            require('autoprefixer')
+            require('autoprefixer'),
         ],
     },
     themeConfig: {
@@ -13,23 +13,17 @@ module.exports = {
             {
                 title: '入门',
                 collapsable: true,
-                children: [
-                    '/install/',
-                    '/get-started/',
-                ]
+                children: ['/install/', '/get-started/'],
             },
             {
                 title: '组件',
                 collapsable: true,
-                children: [ 
-                    '/component/button.md',
-                ]
-            }
-        ]
-        
+                children: ['/component/button.md'],
+            },
+        ],
     },
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
     },
     palette: './styles/palette.styl',
 }

@@ -1,11 +1,11 @@
-const expect = chai.expect;
+const expect = chai.expect
 import Vue from 'vue'
 
 import Popover from '../src/popover'
 
 import plugin from '../src/plugin'
-import { callbackify, log } from 'util';
-import { eventNames } from 'cluster';
+import { callbackify, log } from 'util'
+import { eventNames } from 'cluster'
 
 Vue.component('s-popover', Popover)
 
@@ -13,12 +13,12 @@ Vue.config.productionTip = false
 Vue.config.devtools = false
 
 describe('Popover', () => {
-    it("Popover 存在", () => {
+    it('Popover 存在', () => {
         expect(Popover).to.exist
     })
 
     describe('Popover 例子验证', () => {
-        it("Popover 接受 position", (done) => {
+        it('Popover 接受 position', (done) => {
             const Constructor = Vue.extend()
             let div = document.createElement('div')
             div.innerHTML = `
@@ -48,19 +48,20 @@ describe('Popover', () => {
                 expect(a).to.eq(true)
 
                 document.body.click()
-                vm.$nextTick(()=> {
-                    let style = vm.$refs.popover.$refs.content_wrapper.style.display
+                vm.$nextTick(() => {
+                    let style =
+                        vm.$refs.popover.$refs.content_wrapper.style.display
 
                     expect(style).to.eq('none')
 
-                    vm.$el.remove();
+                    vm.$el.remove()
                     document.querySelector('.content-wrapper').remove()
-                    vm.$destroy();
+                    vm.$destroy()
                     done()
                 })
             })
         })
-        it("Popover 接受 trigger", (done) => {
+        it('Popover 接受 trigger', (done) => {
             const Constructor = Vue.extend()
             let div = document.createElement('div')
             div.innerHTML = `

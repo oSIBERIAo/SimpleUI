@@ -1,12 +1,12 @@
-const expect = chai.expect;
+const expect = chai.expect
 import Vue from 'vue'
 
 import Collapse from '../src/collapse'
 import CollapseItem from '../src/collapse-item'
 
 import plugin from '../src/plugin'
-import { callbackify, log } from 'util';
-import { eventNames } from 'cluster';
+import { callbackify, log } from 'util'
+import { eventNames } from 'cluster'
 
 Vue.component('s-collapse', Collapse)
 Vue.component('s-collapse-item', CollapseItem)
@@ -15,13 +15,13 @@ Vue.config.productionTip = false
 Vue.config.devtools = false
 
 describe('Collapse', () => {
-    it("Collapse 存在", () => {
+    it('Collapse 存在', () => {
         expect(Collapse).to.exist
         expect(CollapseItem).to.exist
     })
 
     describe('Collapse 例子验证', () => {
-        it("Collapse", (done) => {
+        it('Collapse', (done) => {
             let judge = true
 
             const Constructor = Vue.extend(Collapse)
@@ -37,8 +37,8 @@ describe('Collapse', () => {
                 el: div,
                 data: {
                     selectedData: ['1', '2'],
-                }
-            })      
+                },
+            })
             vm.$mount()
 
             setTimeout(() => {
@@ -54,13 +54,13 @@ describe('Collapse', () => {
                     expect(vm.$el.querySelector('#content-1')).to.not.exist
                     expect(vm.$el.querySelector('#content-2')).to.not.exist
                     expect(vm.$el.querySelector('#content-3')).to.exist
-                    vm.$el.remove();
-                    vm.$destroy();
+                    vm.$el.remove()
+                    vm.$destroy()
                     done()
                 })
-            }) 
+            })
         })
-        it("接受 single", (done) => {
+        it('接受 single', (done) => {
             let judge = true
 
             const Constructor = Vue.extend(Collapse)
@@ -76,17 +76,17 @@ describe('Collapse', () => {
                 el: div,
                 data: {
                     selectedData: ['1'],
-                }
+                },
             })
             vm.$mount()
 
-            setTimeout(() => {         
+            setTimeout(() => {
                 vm.$el.querySelector('[data-name="2"]').click()
                 setTimeout(() => {
                     expect(vm.$el.querySelector('#content-1')).to.not.exist
                     expect(vm.$el.querySelector('#content-2')).to.exist
-                    vm.$el.remove();
-                    vm.$destroy();
+                    vm.$el.remove()
+                    vm.$destroy()
                     done()
                 })
             })
@@ -101,22 +101,22 @@ describe('Collapse', () => {
                 <s-collapse-item title="title3" name="3"><span id="content-3">内容<span></s-collapse-item>         
             </s-collapse>
             `
-            const callback = sinon.fake();
+            const callback = sinon.fake()
             const vm = new Vue({
                 el: div,
                 data: {
-                    selectedData: ['1']
+                    selectedData: ['1'],
                 },
                 methods: {
-                    onSelect: callback
-                }
+                    onSelect: callback,
+                },
             })
             setTimeout(() => {
                 vm.$el.querySelector('[data-name="2"]').click()
                 setTimeout(() => {
                     expect(callback).to.have.been.called
-                    vm.$el.remove();
-                    vm.$destroy();
+                    vm.$el.remove()
+                    vm.$destroy()
                     done()
                 })
             })

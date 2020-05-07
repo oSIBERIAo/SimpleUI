@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>简UI</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --button-height: 32px;
-            --font-size: 14px;
-            --button-bg: white;
-            --button-active-bg: #eee;
-            --border-radius: 4px;
-            --color: #333;
-            --border-color: #98A1B1;
-            --border-color-hover: #0C66FF;
-        }
-        #app {
-            margin: 20px;
-        }
-    
-        body {
-            font-size: var(--font-size);
-        }
-    </style>
-    <style>
-        /* .row{
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>简UI</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            :root {
+                --button-height: 32px;
+                --font-size: 14px;
+                --button-bg: white;
+                --button-active-bg: #eee;
+                --border-radius: 4px;
+                --color: #333;
+                --border-color: #98a1b1;
+                --border-color-hover: #0c66ff;
+            }
+            #app {
+                margin: 20px;
+            }
+
+            body {
+                font-size: var(--font-size);
+            }
+        </style>
+        <style>
+            /* .row{
             display: flex;
         }
         .col{
@@ -39,121 +39,162 @@
             width: 50%;
             outline: 1px solid #007eff;
         } */
-    </style>
-</head>
-<body>
-    <div id="app">
-        <div>
-            <s-input v-bind:value="current_input"  v-on:input="current_input = $event"></s-input>
-            <s-input v-model="current_input"></s-input>
-            <s-input :readonly=true value="readonly"></s-input>
-            <s-input :disabled=true></s-input>
-            <s-input :success=true></s-input>
-            <s-input error="出错了"></s-input>
-        </div>
-        <br>
-        <div>
-            <p>{{current_input}}</p>
-        </div>
-        <br>
-        <!-- <s-input></s-input>  -->
-        <div>
-            <s-button icon="loading" :loading='loading1' icon_position="left" @click="loading1 = !loading1">加载图标按钮</s-button>
-            <s-button icon="setting" :loading='loading2' icon_position="left" @click="loading2 = !loading2">左图标按钮</s-button>
-            <s-button icon="setting" :loading='loading3' icon_position="right" @click="loading3 = !loading3">右图标按钮</s-button>
-            <s-button-group>
-                <s-button icon="left" icon_position="left">上一页</s-button>
-                <s-button>更多</s-button>
-                <s-button icon="right" icon_position="right">下一页</s-button>
-            </s-button-group>
-        </div>
-        <br><br>
-        <s-layout>
-            <s-header>header</s-header>
-            <s-content>content</s-content>
-            <s-footer>footer</s-footer>
-        </s-layout>
-        <br>
-        <s-layout>
-            <s-header>header</s-header>
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div>
+                <s-input
+                    v-bind:value="current_input"
+                    v-on:input="current_input = $event"
+                ></s-input>
+                <s-input v-model="current_input"></s-input>
+                <s-input :readonly="true" value="readonly"></s-input>
+                <s-input :disabled="true"></s-input>
+                <s-input :success="true"></s-input>
+                <s-input error="出错了"></s-input>
+            </div>
+            <br />
+            <div>
+                <p>{{current_input}}</p>
+            </div>
+            <br />
+            <!-- <s-input></s-input>  -->
+            <div>
+                <s-button
+                    icon="loading"
+                    :loading="loading1"
+                    icon_position="left"
+                    @click="loading1 = !loading1"
+                    >加载图标按钮</s-button
+                >
+                <s-button
+                    icon="setting"
+                    :loading="loading2"
+                    icon_position="left"
+                    @click="loading2 = !loading2"
+                    >左图标按钮</s-button
+                >
+                <s-button
+                    icon="setting"
+                    :loading="loading3"
+                    icon_position="right"
+                    @click="loading3 = !loading3"
+                    >右图标按钮</s-button
+                >
+                <s-button-group>
+                    <s-button icon="left" icon_position="left">上一页</s-button>
+                    <s-button>更多</s-button>
+                    <s-button icon="right" icon_position="right"
+                        >下一页</s-button
+                    >
+                </s-button-group>
+            </div>
+            <br /><br />
             <s-layout>
-                <s-sider>sider</s-sider>
+                <s-header>header</s-header>
                 <s-content>content</s-content>
+                <s-footer>footer</s-footer>
             </s-layout>
-            <s-footer>footer</s-footer>
-        </s-layout>
-        <br><br>
-        <div style="border: 1px solid #100cff; background: #68caff; ">
-            <s-row>
-                <s-col 
-                    :spen="2" 
-                    :xs="{span:12}"
-                    :sm="{span:6}"
-                    :md="{span:8}"
-                    :lg="{span:10}"
-                    :xl="{span:4}"
-                    :xll="{span:2}"
-                >col</s-col>
-                <s-col 
-                    :spen="22" 
-                    :xs="{span:12, offset:12}"
-                    :sm="{span:18}"
-                    :md="{span:16}"
-                    :lg="{span:14}"
-                    :xl="{span:20}"
-                    :xll="{span:22}"
-                >col</s-col>
-            </s-row>
-            <s-row>
-                <s-col>col</s-col>
-                <s-col>col</s-col>
-            </s-row>
-            <s-row>
-                <s-col :spen="2"></s-col>
-                <s-col :spen="22"></s-col>
-            </s-row>
-            <s-row>
-                <s-col :spen="2" :offset="2"></s-col>
-                <s-col :spen="2"></s-col>
-                <s-col :spen="4"></s-col>
-                <s-col :spen="6"></s-col>
-                <s-col :spen="8"></s-col>
-            </s-row>
+            <br />
+            <s-layout>
+                <s-header>header</s-header>
+                <s-layout>
+                    <s-sider>sider</s-sider>
+                    <s-content>content</s-content>
+                </s-layout>
+                <s-footer>footer</s-footer>
+            </s-layout>
+            <br /><br />
+            <div style="border: 1px solid #100cff; background: #68caff;">
+                <s-row>
+                    <s-col
+                        :spen="2"
+                        :xs="{span:12}"
+                        :sm="{span:6}"
+                        :md="{span:8}"
+                        :lg="{span:10}"
+                        :xl="{span:4}"
+                        :xll="{span:2}"
+                        >col</s-col
+                    >
+                    <s-col
+                        :spen="22"
+                        :xs="{span:12, offset:12}"
+                        :sm="{span:18}"
+                        :md="{span:16}"
+                        :lg="{span:14}"
+                        :xl="{span:20}"
+                        :xll="{span:22}"
+                        >col</s-col
+                    >
+                </s-row>
+                <s-row>
+                    <s-col>col</s-col>
+                    <s-col>col</s-col>
+                </s-row>
+                <s-row>
+                    <s-col :spen="2"></s-col>
+                    <s-col :spen="22"></s-col>
+                </s-row>
+                <s-row>
+                    <s-col :spen="2" :offset="2"></s-col>
+                    <s-col :spen="2"></s-col>
+                    <s-col :spen="4"></s-col>
+                    <s-col :spen="6"></s-col>
+                    <s-col :spen="8"></s-col>
+                </s-row>
+            </div>
+            <br /><br />
+            <div style="border: 1px solid #100cff; background: #68caff;">
+                <s-row>
+                    <s-col
+                        :spen="12"
+                        :xs="{span:12, offset:12}"
+                        :sm="{span:10}"
+                        :md="{span:8}"
+                        :lg="{span:6}"
+                        :xl="{span:4}"
+                        :xll="{span:2}"
+                        >col</s-col
+                    >
+                    <s-col
+                        :spen="12"
+                        :xs="{span:12, offset:12}"
+                        :sm="{span:14}"
+                        :md="{span:16}"
+                        :lg="{span:18}"
+                        :xl="{span:20}"
+                        :xll="{span:22}"
+                        >col</s-col
+                    >
+                </s-row>
+            </div>
+            <br /><br />
+            <div style="border: 1px solid #100cff;">
+                <s-row :gutter="20">
+                    <s-col></s-col>
+                    <s-col></s-col>
+                </s-row>
+                <s-row :gutter="20">
+                    <s-col :spen="2"></s-col>
+                    <s-col :spen="22"></s-col>
+                </s-row>
+                <s-row :gutter="20">
+                    <s-col :spen="2" :offset="2"></s-col>
+                    <s-col :spen="2"></s-col>
+                    <s-col :spen="4"></s-col>
+                    <s-col :spen="6"></s-col>
+                    <s-col :spen="8"></s-col>
+                </s-row>
+            </div>
         </div>
-        <br><br>
-        <div style="border: 1px solid #100cff; background: #68caff; ">
-            <s-row>
-                <s-col :spen="12" :xs="{span:12, offset:12}" :sm="{span:10}" :md="{span:8}" :lg="{span:6}" :xl="{span:4}" :xll="{span:2}">col</s-col>
-                <s-col :spen="12" :xs="{span:12, offset:12}" :sm="{span:14}" :md="{span:16}" :lg="{span:18}" :xl="{span:20}" :xll="{span:22}">col</s-col>
-            </s-row>
-        </div>
-        <br><br>
-        <div style="border: 1px solid #100cff;">
-            <s-row :gutter="20">
-                <s-col></s-col>
-                <s-col></s-col>
-            </s-row>
-            <s-row :gutter="20">
-                <s-col :spen="2"></s-col>
-                <s-col :spen="22"></s-col>
-            </s-row>
-            <s-row :gutter="20">
-                <s-col :spen="2" :offset="2"></s-col>
-                <s-col :spen="2"></s-col>
-                <s-col :spen="4"></s-col>
-                <s-col :spen="6"></s-col>
-                <s-col :spen="8"></s-col>
-            </s-row>
-        </div>
-    </div>
 
-<script>
-    const log = console.log.bind(console);
-</script>
-<script src="./src/app.js"></script>
-<script src="./src/unit-testing.js"></script>
-<script>
-
-</script>   
-</body>
+        <script>
+            const log = console.log.bind(console)
+        </script>
+        <script src="./src/app.js"></script>
+        <script src="./src/unit-testing.js"></script>
+        <script></script>
+    </body>
 </html>

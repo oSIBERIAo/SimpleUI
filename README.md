@@ -1,4 +1,5 @@
-# 简UI————VUE UI组件库
+# 简 UI————VUE UI 组件库
+
 https://travis-ci.com/oSIBERIAo/SimpleUI.svg?branch=master
 [官方文档](https://github.com/oSIBERIAo/SimpleUI)
 
@@ -13,7 +14,7 @@ https://travis-ci.com/oSIBERIAo/SimpleUI.svg?branch=master
 
 ## 背景
 
-学习VUE过程中造的 UI 轮子。
+学习 VUE 过程中造的 UI 轮子。
 
 ## 视觉稿
 
@@ -22,6 +23,7 @@ https://travis-ci.com/oSIBERIAo/SimpleUI.svg?branch=master
 ## 开始
 
 1. 安装依赖
+
     ```
     yarn install
     ```

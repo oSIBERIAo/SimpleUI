@@ -4,13 +4,13 @@
     </div>
 </template>
 <script>
-    export default {
-        name: "Tab-body",
-        props: {},
-    }
+export default {
+    name: 'Tab-body',
+    props: {},
+}
 </script>
 <style lang="scss">
-    .tab-body{
-        display: flex;
-    }
+.tab-body {
+    display: flex;
+}
 </style>

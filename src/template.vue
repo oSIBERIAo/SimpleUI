@@ -1,9 +1,7 @@
-<template>
-</template>
+<template> </template>
 <script>
-    export default {
-        props: {},
-    }
+export default {
+    props: {},
+}
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
