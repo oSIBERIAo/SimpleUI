@@ -124,13 +124,16 @@
         <!-- {{ this.selectedCascader }} -->
         <br /><br /><br />
         <s-cascader
-            :source="source"
+            :source.sync="source"
             :selected.sync="selectedCascader"
-            @update:selected="xxx"
+            popover-height="200px"
+            :load-data="loadData"
+        ></s-cascader>
+        <s-cascader
+            :source.sync="sourceCascader2"
+            :selected.sync="selectedCascader2"
             popover-height="200px"
         ></s-cascader>
-        <!-- @update:selected="selectedCascader = $event" -->
-        <s-cascader :source="source"></s-cascader>
         <br /><br /><br />
         <h6>single:{{ selectedCollapse }}</h6>
         <s-collapse
@@ -186,41 +189,47 @@ import Cascader from './cascader'
 
 import plugin from './plugin'
 // import { install } from './plugin'
+;(function () {
+    Vue.component('s-button', Button)
+    Vue.component('s-icon', Icon)
+    Vue.component('s-button-group', ButtonGroup)
+    Vue.component('s-input', Input)
 
-Vue.component('s-button', Button)
-Vue.component('s-icon', Icon)
-Vue.component('s-button-group', ButtonGroup)
-Vue.component('s-input', Input)
+    Vue.component('s-row', Row)
+    Vue.component('s-col', Col)
 
-Vue.component('s-row', Row)
-Vue.component('s-col', Col)
+    Vue.component('s-layout', Layout)
+    Vue.component('s-header', Header)
+    Vue.component('s-sider', Sider)
+    Vue.component('s-content', Content)
+    Vue.component('s-footer', Footer)
 
-Vue.component('s-layout', Layout)
-Vue.component('s-header', Header)
-Vue.component('s-sider', Sider)
-Vue.component('s-content', Content)
-Vue.component('s-footer', Footer)
+    Vue.component('s-toast', Toast)
 
-Vue.component('s-toast', Toast)
+    Vue.component('s-tab', Tab)
+    Vue.component('s-tab-body', TabBody)
+    Vue.component('s-tab-head', TabHead)
+    Vue.component('s-tab-item', TabItem)
+    Vue.component('s-tab-pane', TabPane)
 
-Vue.component('s-tab', Tab)
-Vue.component('s-tab-body', TabBody)
-Vue.component('s-tab-head', TabHead)
-Vue.component('s-tab-item', TabItem)
-Vue.component('s-tab-pane', TabPane)
+    Vue.component('s-popover', Popover)
 
-Vue.component('s-popover', Popover)
+    Vue.component('s-collapse', Collapse)
+    Vue.component('s-collapse-item', CollapseItem)
 
-Vue.component('s-collapse', Collapse)
-Vue.component('s-collapse-item', CollapseItem)
-
-Vue.component('s-cascader', Cascader)
+    Vue.component('s-cascader', Cascader)
+})()
 
 Vue.use(plugin)
+
 import db from './db'
 function ajax(parentId = 0) {
     return new Promise((success, fail) => {
-        let result = db.filter((item) => item.parent_id == parentId)
+        let result = db.filter((item) => item.parent_id === parentId)
+        result.map((node) => {
+            node.isLeaf =
+                db.filter((item) => item.parent_id === node.id).length <= 0
+        })
         success(result)
     })
 }
@@ -237,33 +246,80 @@ export default {
             selectedTab: '2',
             selectedCollapse: ['1'],
             selectedCollapse2: ['1'],
-            selectedCascader: [],
             haha: [],
             source: [],
+            selectedCascader: [],
+            sourceCascader2: [],
+            selectedCascader2: [],
         }
     },
     created() {
         ajax(0).then((result) => {
             this.source = result
+            this.sourceCascader2 = [
+                {
+                    name: '一一',
+                    children: [
+                        {
+                            name: '一二',
+                            children: [
+                                {
+                                    name: '一三',
+                                },
+                                {
+                                    name: '一三',
+                                },
+                                {
+                                    name: '一三',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    name: '二一',
+                    children: [
+                        {
+                            name: '二二',
+                            children: [
+                                {
+                                    name: '二三',
+                                },
+                            ],
+                        },
+                        {
+                            name: '二二',
+                            children: [
+                                {
+                                    name: '二三',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    name: '三一',
+                    children: [
+                        {
+                            name: '三二',
+                            children: [
+                                {
+                                    name: '三三',
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ]
         })
     },
     methods: {
-        xxx() {
-            console.log('selectedCascader', this.selectedCascader)
-            ajax(this.selectedCascader[0].id).then((result) => {
-                // console.log('xxxxx1', result);
-                // console.log('xxxxx', this.source.filter(item => item.id === this.selectedCascader[0].id))
-                let lastLevelSelected = this.source.filter(
-                    (item) => item.id === this.selectedCascader[0].id
-                )[0]
-                console.log(lastLevelSelected === this.source[0])
-                this.$set(lastLevelSelected, 'children', result)
-                console.log('lastLevelSelected', lastLevelSelected)
-                console.log('lastLevelSelected2', this.source)
+        loadData(node, callback) {
+            let id = node.id
+            ajax(id).then((result) => {
+                callback(result)
+                console.log('更新级联', result)
             })
-        },
-        yyy() {
-            console.log('yyy')
         },
         showToastTop() {
             this.$toast('<strong>New message on your toast</strong>', {

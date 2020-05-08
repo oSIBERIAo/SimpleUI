@@ -8,7 +8,7 @@
                 @click="onclickLabel(item)"
             >
                 <span class="name">{{ item.name }}</span>
-                <s-icon v-if="item.children" name="right"></s-icon>
+                <s-icon v-if="rightArrowsVisible(item)" name="right"></s-icon>
             </div>
         </div>
         <div class="right" v-if="rightItems">
@@ -17,6 +17,7 @@
                 :items="rightItems"
                 :height="height"
                 :selected="selected"
+                :load-data="loadData"
                 @update:selected="onUpdateSelected"
             ></s-cascader-items>
         </div>
@@ -47,6 +48,9 @@ export default {
                 return []
             },
         },
+        loadData: {
+            type: Function,
+        },
     },
     data() {
         return {
@@ -66,15 +70,23 @@ export default {
         onUpdateSelected(newSelected) {
             this.$emit('update:selected', newSelected)
         },
+        rightArrowsVisible(item) {
+            return this.loadData ? !item.isLeaf : item.children
+        },
     },
     computed: {
         rightItems() {
             let currentSelected = this.selected[this.level]
-            if (currentSelected && currentSelected.children) {
-                console.log('rightItems', this.selected[this.level])
-                return currentSelected.children
-            } else {
-                return null
+            // console.log('this.selected~~', this.selected)
+            // console.log('this.items~~', this.items)
+            if (currentSelected) {
+                let item = this.items.filter(
+                    (item) => item.name === currentSelected.name
+                )
+                // console.log('rightItems~~', item)
+                if (item && item[0].children && item[0].children.length > 0) {
+                    return item[0].children
+                }
             }
         },
     },
@@ -91,7 +103,7 @@ export default {
         height: 100%;
         width: 100%;
         white-space: nowrap;
-        padding: 0.3em 0;
+        padding: 0 0;
         overflow: auto;
         // border-radius: $border-radius;
         // border: 1px solid;
@@ -101,6 +113,13 @@ export default {
             align-items: center;
             cursor: pointer;
             white-space: nowrap;
+            &:hover {
+                background: $grey;
+            }
+            .name {
+                margin-right: 1em;
+                user-select: none;
+            }
             .s-icon {
                 margin: 0 -0.5em 0 0;
             }

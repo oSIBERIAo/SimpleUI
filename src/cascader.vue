@@ -13,6 +13,7 @@
                 :items="source"
                 :height="popoverHeight"
                 :style="{ height: popoverHeight }"
+                :loadData="loadData"
             ></cascader-items>
         </div>
     </div>
@@ -38,6 +39,9 @@ export default {
                 return []
             },
         },
+        loadData: {
+            type: Function,
+        },
     },
     data() {
         return {
@@ -48,6 +52,49 @@ export default {
         onUpdateSelected(newSelected) {
             this.$emit('update:selected', newSelected)
             console.log('newSelected', newSelected)
+
+            //以下是动态加载方法
+            let lastItem = newSelected[newSelected.length - 1]
+            let simplest = (children, id) => {
+                return children.filter((item) => item.id === id)[0]
+            }
+            let complex = (children, id) => {
+                let noChildren = []
+                let hasChildren = []
+                children.forEach((item) => {
+                    if (item.children) {
+                        hasChildren.push(item)
+                    } else {
+                        noChildren.push(item)
+                    }
+                })
+                let found = simplest(noChildren, id)
+                if (found) {
+                    return found
+                } else {
+                    found = simplest(hasChildren, id)
+                    if (found) {
+                        return found
+                    } else {
+                        for (let i = 0; i < hasChildren.length; i++) {
+                            found = complex(hasChildren[i].children, id)
+                        }
+                        if (found) {
+                            return found
+                        }
+                    }
+                }
+            }
+
+            let updateSource = (result) => {
+                let copy = JSON.parse(JSON.stringify(this.source))
+                let toUpdate = complex(copy, lastItem.id)
+                if (toUpdate) {
+                    toUpdate.children = result
+                    this.$emit('update:source', copy)
+                }
+            }
+            this.loadData && this.loadData(lastItem, updateSource)
         },
     },
     computed: {
