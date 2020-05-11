@@ -129,6 +129,7 @@
             popover-height="200px"
             :load-data="loadData"
         ></s-cascader>
+        <br /><br /><br />
         <s-cascader
             :source.sync="sourceCascader2"
             :selected.sync="selectedCascader2"
@@ -357,5 +358,10 @@ export default {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+}
+
+* {
+    outline: 1px dashed red;
+    box-sizing: border-box;
 }
 </style>

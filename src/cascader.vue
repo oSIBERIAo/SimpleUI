@@ -1,6 +1,6 @@
 <template>
-    <div class="s-cascader">
-        <div class="trigger" @click="popoverVisible = !popoverVisible">
+    <div class="s-cascader" ref="cascader" v-click-outside="close">
+        <div class="trigger" @click="toggle">
             <!-- {{ source[1].name }} -->
             <!-- {{ popoverHeight }} -->
             {{ result || '&nbsp;' }}
@@ -20,11 +20,16 @@
 </template>
 <script>
 import CascaderItems from './cascader-items'
+import ClickOutside from './utils/click-outside'
+import { removeListener } from './utils/click-outside'
 
 export default {
     name: 'Cascader',
     components: {
         CascaderItems: CascaderItems,
+    },
+    directives: {
+        ClickOutside: ClickOutside,
     },
     props: {
         source: {
@@ -48,7 +53,21 @@ export default {
             popoverVisible: false,
         }
     },
+    inject: {},
     methods: {
+        open() {
+            this.popoverVisible = true
+        },
+        close() {
+            this.popoverVisible = false
+        },
+        toggle() {
+            if (this.popoverVisible === true) {
+                this.close()
+            } else {
+                this.open()
+            }
+        },
         onUpdateSelected(newSelected) {
             this.$emit('update:selected', newSelected)
             console.log('newSelected', newSelected)
@@ -102,15 +121,16 @@ export default {
             return this.selected.map((item) => item.name).join('/')
         },
     },
+    destroyed() {
+        removeListener()
+    },
 }
 </script>
 <style scoped lang="scss">
 @import 'var';
 
 .s-cascader {
-    // border: 1px solid red;
-    display: inline-block;
-    // display: inline-flex;
+    display: inline-flex;
     margin: 10px;
     position: relative;
 
@@ -131,6 +151,7 @@ export default {
         left: 0;
         position: absolute;
         top: 100%;
+        z-index: 1;
 
         .label {
             white-space: nowrap;
