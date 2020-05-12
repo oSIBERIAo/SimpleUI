@@ -8,7 +8,18 @@
                 @click="onclickLabel(item)"
             >
                 <span class="name">{{ item.name }}</span>
-                <s-icon v-if="rightArrowsVisible(item)" name="right"></s-icon>
+                <span class="icons">
+                    <s-icon
+                        v-if="rightArrowsVisible(item)"
+                        v-show="!loadingVisible(item)"
+                        name="right"
+                    ></s-icon>
+                    <s-icon
+                        class="loading"
+                        v-if="loadingVisible(item)"
+                        name="loading"
+                    ></s-icon>
+                </span>
             </div>
         </div>
         <div class="right" v-if="rightItems">
@@ -59,12 +70,9 @@ export default {
     },
     methods: {
         onclickLabel(item) {
-            console.log(item)
             let s = JSON.parse(JSON.stringify(this.selected))
             s[this.level] = item
             s.splice(this.level + 1)
-            console.log('this.level', this.level)
-            console.log('this.sel', s)
             this.$emit('update:selected', s)
         },
         onUpdateSelected(newSelected) {
@@ -73,17 +81,23 @@ export default {
         rightArrowsVisible(item) {
             return this.loadData ? !item.isLeaf : item.children
         },
+        loadingVisible(item) {
+            let currentSelected = this.selected[this.level]
+            return (
+                currentSelected &&
+                !this.rightItems &&
+                item.name === currentSelected.name &&
+                item.children === currentSelected.children
+            )
+        },
     },
     computed: {
         rightItems() {
             let currentSelected = this.selected[this.level]
-            // console.log('this.selected~~', this.selected)
-            // console.log('this.items~~', this.items)
             if (currentSelected) {
                 let item = this.items.filter(
                     (item) => item.name === currentSelected.name
                 )
-                // console.log('rightItems~~', item)
                 if (item && item[0].children && item[0].children.length > 0) {
                     return item[0].children
                 }
@@ -116,15 +130,22 @@ export default {
             &:hover {
                 background: $grey;
             }
+
             .name {
                 margin-right: 1em;
                 user-select: none;
             }
-            .s-icon {
+
+            .icons {
                 margin: 0 -0.5em 0 0;
+
+                .loading {
+                    animation: spin 2s inherit linear;
+                }
             }
         }
     }
+
     .right {
         height: 100%;
         white-space: nowrap;
@@ -132,6 +153,15 @@ export default {
         // border-radius: $border-radius;
         border-left: 1px solid $border-color;
         // border: 1px solid;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 }
 </style>

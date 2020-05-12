@@ -226,12 +226,14 @@ Vue.use(plugin)
 import db from './db'
 function ajax(parentId = 0) {
     return new Promise((success, fail) => {
-        let result = db.filter((item) => item.parent_id === parentId)
-        result.map((node) => {
-            node.isLeaf =
-                db.filter((item) => item.parent_id === node.id).length <= 0
-        })
-        success(result)
+        setTimeout(() => {
+            let result = db.filter((item) => item.parent_id === parentId)
+            result.map((node) => {
+                node.isLeaf =
+                    db.filter((item) => item.parent_id === node.id).length <= 0
+            })
+            success(result)
+        }, 1000)
     })
 }
 console.log(ajax())
@@ -319,7 +321,7 @@ export default {
             let id = node.id
             ajax(id).then((result) => {
                 callback(result)
-                console.log('更新级联', result)
+                // console.log('更新级联', result)
             })
         },
         showToastTop() {

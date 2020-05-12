@@ -46,6 +46,7 @@ export default {
         },
         loadData: {
             type: Function,
+            default: null,
         },
     },
     data() {
@@ -70,9 +71,12 @@ export default {
         },
         onUpdateSelected(newSelected) {
             this.$emit('update:selected', newSelected)
-            console.log('newSelected', newSelected)
+            // console.log('newSelected', newSelected)
 
             //以下是动态加载方法
+            if (this.loadData === null) {
+                return
+            }
             let lastItem = newSelected[newSelected.length - 1]
             let simplest = (children, id) => {
                 return children.filter((item) => item.id === id)[0]
