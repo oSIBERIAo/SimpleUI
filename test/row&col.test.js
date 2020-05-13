@@ -1,9 +1,14 @@
 const expect = chai.expect
+import chai from 'chai'
+import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
+import { shallowMount, mount } from '@vue/test-utils'
 import Vue from 'vue'
+
+chai.use(sinonChai)
+
 import Row from '../src/row'
 import Col from '../src/col'
-import { callbackify } from 'util'
-import { eventNames } from 'cluster'
 
 Vue.component('s-row', Row)
 Vue.component('s-col', Col)
@@ -11,7 +16,7 @@ Vue.component('s-col', Col)
 Vue.config.productionTip = false
 Vue.config.devtools = false
 
-describe('Input', () => {
+describe('Row & Col', () => {
     it('Row 存在', () => {
         expect(Row).to.exist
     })

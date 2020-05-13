@@ -1,14 +1,20 @@
 const expect = chai.expect
+import chai from 'chai'
+import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
+import { shallowMount, mount } from '@vue/test-utils'
 import Vue from 'vue'
+
+chai.use(sinonChai)
+
+// import { callbackify, log } from 'util'
+// import { eventNames } from 'cluster'
 
 import Tab from '../src/tab'
 import TabBody from '../src/tab-body'
 import TabHead from '../src/tab-head'
 import TabItem from '../src/tab-item'
 import TabPane from '../src/tab-pane'
-
-import { callbackify, log } from 'util'
-import { eventNames } from 'cluster'
 
 Vue.component('s-tab', Tab)
 Vue.component('s-tab-body', TabBody)
@@ -19,8 +25,8 @@ Vue.component('s-tab-pane', TabPane)
 Vue.config.productionTip = false
 Vue.config.devtools = false
 
-describe('Input', () => {
-    it('Tab 等全部存在', () => {
+describe('Tab', () => {
+    xit('Tab 等全部存在', () => {
         expect(Tab).to.exist
         expect(TabBody).to.exist
         expect(TabHead).to.exist
@@ -33,7 +39,7 @@ describe('Input', () => {
         //     vm.$el.remove();
         //     vm.$destroy()
         // })
-        it('Tab', (done) => {
+        xit('Tab', () => {
             const Constructor = Vue.extend()
             let div = document.createElement('div')
             div.innerHTML = `
@@ -57,13 +63,13 @@ describe('Input', () => {
             vm.$mount(div)
             vm.$nextTick(() => {
                 let e = vm.$el.querySelector(`.tab-item[data-name="1"]`)
+                console.log('e.classList', e.classList)
                 expect(e.classList.contains('active')).to.be.true
-                done()
             })
             vm.$el.remove()
             vm.$destroy()
         })
-        it('TabItem 接受 name 属性', () => {
+        xit('TabItem 接受 name 属性', () => {
             const Constructor = Vue.extend(TabItem)
             const vm = new Constructor({
                 propsData: {
@@ -74,7 +80,7 @@ describe('Input', () => {
             vm.$el.remove()
             vm.$destroy()
         })
-        it('TabItem 接受 disabled 属性', () => {
+        xit('TabItem 接受 disabled 属性', () => {
             const Constructor = Vue.extend(TabItem)
             const vm = new Constructor({
                 propsData: {

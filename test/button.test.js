@@ -1,5 +1,12 @@
 const expect = chai.expect
+import chai from 'chai'
+import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
+import { shallowMount, mount } from '@vue/test-utils'
 import Vue from 'vue'
+
+chai.use(sinonChai)
+
 import Button from '../src/button'
 import Icon from '../src/icon'
 import ButtonGroup from '../src/button-group'
