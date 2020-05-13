@@ -1,12 +1,14 @@
 const expect = chai.expect
+import chai from 'chai'
+import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
+import { shallowMount, mount } from '@vue/test-utils'
 import Vue from 'vue'
 
-import Collapse from '../src/collapse'
-import CollapseItem from '../src/collapse-item'
+chai.use(sinonChai)
 
-import plugin from '../src/plugin'
-import { callbackify, log } from 'util'
-import { eventNames } from 'cluster'
+import Collapse from '../../src/collapse'
+import CollapseItem from '../../src/collapse-item'
 
 Vue.component('s-collapse', Collapse)
 Vue.component('s-collapse-item', CollapseItem)
