@@ -1,11 +1,17 @@
 const expect = chai.expect
+import chai from 'chai'
+import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
+import { shallowMount, mount } from '@vue/test-utils'
 import Vue from 'vue'
+
+chai.use(sinonChai)
 
 import Popover from '../src/popover'
 
-import plugin from '../src/plugin'
-import { callbackify, log } from 'util'
-import { eventNames } from 'cluster'
+// import plugin from '../src/plugin'
+// import { callbackify, log } from 'util'
+// import { eventNames } from 'cluster'
 
 Vue.component('s-popover', Popover)
 

@@ -1,8 +1,15 @@
 const expect = chai.expect
+import chai from 'chai'
+import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
+import { shallowMount, mount } from '@vue/test-utils'
 import Vue from 'vue'
+
+chai.use(sinonChai)
+
 import Input from '../src/input'
-import { callbackify } from 'util'
-import { eventNames } from 'cluster'
+// import { callbackify } from 'util'
+// import { eventNames } from 'cluster'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
