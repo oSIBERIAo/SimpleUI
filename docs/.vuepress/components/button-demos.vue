@@ -27,7 +27,7 @@ export default {
     data() {
         return {
             content: `
-            <s-button icon="loading" icon_position="left">加载图标按钮</s-button>
+            <s-button icon="loading" icon_position="left">加载图标按钮1</s-button>
             <s-button icon="setting" icon_position="left">左图标按钮</s-button>
             <s-button icon="setting" icon_position="right">右图标按钮</s-button>
 

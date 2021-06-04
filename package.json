@@ -9,7 +9,9 @@
         "test:unit": "vue-cli-service test:unit",
         "format": "prettier --write . ",
         "test": "karma start --single-run",
-        "karma-test": "karma start --single-run"
+        "karma-test": "karma start --single-run",
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
     },
     "repository": {
         "type": "git",
@@ -37,7 +39,8 @@
         "mocha": "^7.1.2",
         "sinon": "^9.0.2",
         "sinon-chai": "^3.5.0",
-        "vue": "^2.6.11"
+        "vue": "2.6.13",
+        "vue-loader": "^15.9.7"
     },
     "prettier": {
         "semi": false,
@@ -56,7 +59,8 @@
         "node-sass": "^4.12.0",
         "prettier": "^2.0.5",
         "sass-loader": "^8.0.2",
-        "vue-template-compiler": "^2.6.11"
+        "vue-template-compiler": "2.6.13",
+        "vuepress": "^1.8.2"
     },
     "browserslist": [
         "> 1%",
