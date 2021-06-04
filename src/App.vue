@@ -10,6 +10,15 @@
             down
         </button>
         <br /><br /><br />
+        <diV>
+            <s-button icon="loading" icon_position="left"
+                >加载图标按钮</s-button
+            >
+            <s-button icon="left" icon_position="left">左图标按钮</s-button>
+            <s-button icon="right" icon_position="right">右图标按钮</s-button>
+            <s-button icon="up" icon_position="right">上图标按钮</s-button>
+            <s-button icon="down" icon_position="right">下图标按钮</s-button>
+        </diV>
 
         <div class="wapper">
             <s-slides :selected.sync="slidesSelected" :interval="3000">
@@ -214,7 +223,6 @@ import SlidesItem from './slides-item'
 
 import plugin from './plugin'
 // import { install } from './plugin'
-
 ;(function () {
     Vue.component('s-button', Button)
     Vue.component('s-icon', Icon)

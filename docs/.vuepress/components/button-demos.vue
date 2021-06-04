@@ -3,8 +3,10 @@
         <br />
 
         <s-button icon="loading" icon_position="left">加载图标按钮</s-button>
-        <s-button icon="setting" icon_position="left">左图标按钮</s-button>
-        <s-button icon="setting" icon_position="right">右图标按钮</s-button>
+        <s-button icon="left" icon_position="left">左图标按钮</s-button>
+        <s-button icon="right" icon_position="right">右图标按钮</s-button>
+        <s-button icon="up" icon_position="right">上图标按钮</s-button>
+        <s-button icon="down" icon_position="right">下图标按钮</s-button>
         <br /><br /><br />
         <s-button-group>
             <s-button icon="left" icon_position="left">上一页</s-button>
@@ -27,9 +29,11 @@ export default {
     data() {
         return {
             content: `
-            <s-button icon="loading" icon_position="left">加载图标按钮1</s-button>
-            <s-button icon="setting" icon_position="left">左图标按钮</s-button>
-            <s-button icon="setting" icon_position="right">右图标按钮</s-button>
+            <s-button icon="loading" icon_position="left">加载图标按钮</s-button>
+            <s-button icon="left" icon_position="left">左图标按钮</s-button>
+            <s-button icon="right" icon_position="right">右图标按钮</s-button>
+            <s-button icon="up" icon_position="right">上图标按钮</s-button>
+            <s-button icon="down" icon_position="right">下图标按钮</s-button>
 
             <s-button-group>
                 <s-button icon="left" icon_position="left">上一页</s-button>
