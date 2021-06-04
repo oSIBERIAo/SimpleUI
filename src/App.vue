@@ -9,6 +9,27 @@
         <button @click="showToastDown" style="height: 50px; width: 50px;">
             down
         </button>
+        <br /><br /><br />
+
+        <div class="wapper">
+            <s-slides :selected.sync="slidesSelected" :interval="3000">
+                <s-slides-item name="1">
+                    <div class="box">111</div>
+                </s-slides-item>
+                <s-slides-item name="2">
+                    <div class="box">222</div>
+                </s-slides-item>
+                <s-slides-item name="3">
+                    <div class="box">333</div>
+                </s-slides-item>
+                <s-slides-item name="4">
+                    <div class="box">444</div>
+                </s-slides-item>
+                <s-slides-item name="5">
+                    <div class="box">555</div>
+                </s-slides-item>
+            </s-slides>
+        </div>
 
         <br /><br /><br />
         <div
@@ -188,8 +209,12 @@ import CollapseItem from './collapse-item'
 
 import Cascader from './cascader'
 
+import Slides from './slides'
+import SlidesItem from './slides-item'
+
 import plugin from './plugin'
 // import { install } from './plugin'
+
 ;(function () {
     Vue.component('s-button', Button)
     Vue.component('s-icon', Icon)
@@ -219,6 +244,9 @@ import plugin from './plugin'
     Vue.component('s-collapse-item', CollapseItem)
 
     Vue.component('s-cascader', Cascader)
+
+    Vue.component('s-slides', Slides)
+    Vue.component('s-slides-item', SlidesItem)
 })()
 
 Vue.use(plugin)
@@ -254,6 +282,7 @@ export default {
             selectedCascader: [],
             sourceCascader2: [],
             selectedCascader2: [],
+            slidesSelected: '',
         }
     },
     created() {
@@ -349,6 +378,11 @@ export default {
             })
         },
     },
+    mounted() {
+        // setTimeout(() => {
+        //     this.slidesSelected = '2'
+        // }, 3000)
+    },
 }
 </script>
 
@@ -365,5 +399,16 @@ export default {
 * {
     outline: 1px dashed red;
     box-sizing: border-box;
+}
+
+.wapper {
+    /*width: 200px;*/
+    height: 150px;
+}
+
+.box {
+    /*width: 200px;*/
+    height: 150px;
+    background-color: #dddddd;
 }
 </style>
