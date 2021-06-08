@@ -57,6 +57,7 @@
 <script>
 import Row from '../../../src/row'
 import Col from '../../../src/col'
+import Icon from '../../../src/icon'
 import mixin from '../mixin'
 
 export default {
@@ -65,6 +66,7 @@ export default {
     components: {
         's-row': Row,
         's-col': Col,
+        's-icon': Icon,
     },
     data() {
         return {

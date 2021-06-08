@@ -1,6 +1,6 @@
 <template>
     <div class="demo">
-        <h3>区块间隔</h3>
+        <h3>响应式栅格</h3>
         <div class="component-wrapper">
             <div class="component-wrapper-demo">
                 <s-row>
@@ -26,11 +26,15 @@
                     </s-col>
                 </s-row>
             </div>
-            <div class="code-user-desc">
-                如果要支持响应式，可以写成 :spen="2" :xs="{ span: 12 }" :sm="{
-                span: 6 }" :md="{ span: 8 }" :lg="{ span: 10 }" :xl="{ span: 4
-                }" :xll="{ span: 2 }"
-            </div>
+          <div class="code-user-desc">
+            如果要支持响应式，可以写成分别设置
+            <code>xs</code>
+            <code>sm</code>
+            <code>md</code>
+            <code>lg</code>
+            <code>xl</code>
+            <code>xll</code> 的 <code>span</code> 属性。
+          </div>
             <div class="lock-code" @click="showCode(3)" ref="xxx">
                 <div>
                     <s-icon
@@ -54,14 +58,16 @@
 <script>
 import Row from '../../../src/row'
 import Col from '../../../src/col'
+import Icon from '../../../src/icon'
 import mixin from '../mixin'
 
 export default {
     name: 'gird',
     mixins: [mixin],
     components: {
-        's-row': Row,
-        's-col': Col,
+      's-row': Row,
+      's-col': Col,
+      's-icon': Icon,
     },
     data() {
         return {
