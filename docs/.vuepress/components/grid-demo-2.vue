@@ -1,103 +1,97 @@
 <template>
-    <div style="padding-top: 16px;">
-        <h2>设置 gutter</h2>
-        <p>
-            <strong>预览</strong>
-        </p>
-        <g-row class="demoRow" gutter="10">
-            <g-col span="8">
-                <div class="demoCol">8</div>
-            </g-col>
-            <g-col span="8">
-                <div class="demoCol">8</div>
-            </g-col>
-            <g-col span="8">
-                <div class="demoCol">8</div>
-            </g-col>
-        </g-row>
-        <g-row class="demoRow" gutter="10">
-            <g-col span="6">
-                <div class="demoCol">6</div>
-            </g-col>
-            <g-col span="6">
-                <div class="demoCol">6</div>
-            </g-col>
-            <g-col span="6">
-                <div class="demoCol">6</div>
-            </g-col>
-            <g-col span="6">
-                <div class="demoCol">6</div>
-            </g-col>
-        </g-row>
-
-        <p>
-            <strong>代码</strong>
-        </p>
-        <pre><code>{{content}}</code></pre>
+    <div class="demo">
+        <h3>左右偏移</h3>
+        <p>基础用法</p>
+        <div class="component-wrapper">
+            <div class="component-wrapper-demo">
+                <s-row>
+                    <s-col :span="8">col-8</s-col>
+                    <s-col :span="8" offset="8">col-8 offset-8</s-col>
+                </s-row>
+                <s-row>
+                    <s-col :span="6" offset="6">col-6 offset-6</s-col>
+                    <s-col :span="6" offset="6">col-6 offset-6</s-col>
+                </s-row>
+            </div>
+            <div class="code-user-desc">
+                列偏移。<br />
+                使用 offset 可以将列向右侧偏。例如，offset={8}
+                将元素向右侧偏移了 8 个列（column）的宽度。
+            </div>
+            <div class="lock-code" @click="showCode(1)" ref="xxx">
+                <div>
+                    <s-icon
+                        class="down"
+                        :name="isShow[1] === false ? 'down' : 'up'"
+                    ></s-icon>
+                    <!--                    <span></span>-->
+                    <span class="lock-code-word">{{
+                        isShow[1] === false ? '显示代码' : '隐藏代码'
+                    }}</span>
+                </div>
+            </div>
+            <div class="code-content" v-highlight style="height: 0;">
+                <div class="code-content-height">
+                    <pre><code class="html">{{ codeStr }}</code></pre>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
-<style scoped>
-* {
-    box-sizing: border-box;
-}
-.demoRow {
-    margin: 10px 0;
-}
-.demoCol {
-    height: 50px;
-    border: 1px solid #ccc;
-    background: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-</style>
+
 <script>
-import GRow from '../../../src/grid/row'
-import GCol from '../../../src/grid/col'
+import Row from '../../../src/row'
+import Col from '../../../src/col'
+import mixin from '../mixin'
 
 export default {
-    components: { GRow, GCol },
+    name: 'gird',
+    mixins: [mixin],
+    components: {
+        's-row': Row,
+        's-col': Col,
+    },
     data() {
         return {
-            content: `
-          * {
-            box-sizing: border-box;
-          }
-
-          <g-row class="demoRow" gutter="10">
-            <g-col span="8">
-              <div class="demoCol">8</div>
-            </g-col>
-            <g-col span="8">
-              <div class="demoCol">8</div>
-            </g-col>
-            <g-col span="8">
-              <div class="demoCol">8</div>
-            </g-col>
-          </g-row>
-
-          <g-row class="demoRow" gutter="10">
-            <g-col span="6">
-              <div class="demoCol">6</div>
-            </g-col>
-            <g-col span="6">
-              <div class="demoCol">6</div>
-            </g-col>
-            <g-col span="6">
-              <div class="demoCol">6</div>
-            </g-col>
-            <g-col span="6">
-              <div class="demoCol">6</div>
-            </g-col>
-          </g-row>
-
-
-
-      `
+            codeStr: `
+        <s-row>
+            <s-col :span="8">col-8</s-col>
+            <s-col :span="8" offset="8">col-8 offset-8</s-col>
+        <s-row>
+        <s-row>
+            <s-col :span="6" offset="6">col-6 offset-6</s-col>
+            <s-col :span="6" offset="6">col-6 offset-6</s-col>
+        <s-row>
+        `
                 .replace(/^ {8}/gm, '')
                 .trim(),
         }
     },
 }
 </script>
+<style lang="scss" scoped>
+* {
+    box-sizing: border-box;
+}
+
+.component-wrapper-demo {
+}
+
+.s-row {
+    .col:nth-child(even) {
+        background: #d3dce6;
+    }
+
+    .col {
+        outline: none;
+        background: #99a9bf;
+        border-radius: 10px;
+        margin-top: 20px;
+        padding: 30px;
+        color: white;
+        font-size: 18px;
+        font-weight: bolder;
+        text-align: center;
+    }
+}
+</style>

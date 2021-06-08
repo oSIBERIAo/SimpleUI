@@ -1,25 +1,16 @@
 ---
-title: 按钮
+title: Button 按钮
 ---
 
-# 按钮
+# Button 按钮
 
-#### 使用方法
+> 按钮用于开始一个即时操作。
+
 
 ---
 
 <ClientOnly>
-  <button-demos> </button-demos> 
+  <button-demos> </button-demos>
+  <button-demos-group> </button-demos-group>
+  <button-attributes> </button-attributes>
 </ClientOnly>
-
-```js{4}
-<s-button icon="loading" icon_position="left">加载图标按钮</s-button>
-<s-button icon="setting" icon_position="left">左图标按钮</s-button>
-<s-button icon="setting" icon_position="right">右图标按钮</s-button>
-
-<s-button-group>
-    <s-button icon="left" icon_position="left">上一页</s-button>
-    <s-button>更多</s-button>
-    <s-button icon="right" icon_position="right">下一页</s-button>
-</s-button-group>
-```

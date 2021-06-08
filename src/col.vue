@@ -19,7 +19,7 @@ let validator = (value) => {
 export default {
     name: 'Col',
     props: {
-        spen: [Number, String],
+        span: [Number, String],
         offset: [Number, String],
         xs: { type: Object, validator },
         sm: { type: Object, validator },
@@ -35,11 +35,11 @@ export default {
     },
     computed: {
         colClass() {
-            let { spen, offset, xs, sm, lg, xl, xxl } = this
+            let { span, offset, xs, sm, lg, xl, xxl } = this
             let ClassKeys = [xs, sm, lg, xl, xxl]
             let keys = ['xs', 'sm', 'lg', 'xl', 'xxl']
 
-            let allClass = [spen && `col-${spen}`, offset && `offset-${offset}`]
+            let allClass = [span && `col-${span}`, offset && `offset-${offset}`]
             for (let i = 0; i < ClassKeys.length; i++) {
                 let k = ClassKeys[i]
                 if (k) {
@@ -66,7 +66,7 @@ export default {
 .col {
     height: 100px;
     width: 50%;
-    outline: 1px dashed #007eff;
+    //outline: 1px dashed #007eff;
     $col: col-;
     @for $n from 1 through 24 {
         &.#{$col}#{$n} {
