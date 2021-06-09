@@ -22,6 +22,7 @@ module.exports = {
                     '/component/button.md',
                     '/component/gird.md',
                     '/component/layout.md',
+                    '/component/toast.md',
                     '/component/demo.md',
                     '/component/gird2.md',
                 ],

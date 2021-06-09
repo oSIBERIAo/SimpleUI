@@ -108,12 +108,13 @@ export default {
         align-items: center;
         position: relative;
         right: 0;
-        margin-right: -10px;
+        //margin-right: -10px;
         padding: 0 0 0 10px;
         height: 100%;
         flex-shrink: 0;
         // outline: 1px dashed red;
         cursor: pointer;
+        justify-content: center;
     }
     .line {
         height: 100%;
