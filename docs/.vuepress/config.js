@@ -1,6 +1,6 @@
 module.exports = {
     base: '/SimpleUI/',
-    title: 'Hello VuePress',
+    title: 'Simple UI',
     description: 'Just playing around',
     postcss: {
         plugins: [
@@ -21,6 +21,7 @@ module.exports = {
                 children: [
                     '/component/button.md',
                     '/component/gird.md',
+                    '/component/layout.md',
                     '/component/demo.md',
                     '/component/gird2.md',
                 ],

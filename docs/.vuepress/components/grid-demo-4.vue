@@ -26,15 +26,15 @@
                     </s-col>
                 </s-row>
             </div>
-          <div class="code-user-desc">
-            如果要支持响应式，可以写成分别设置
-            <code>xs</code>
-            <code>sm</code>
-            <code>md</code>
-            <code>lg</code>
-            <code>xl</code>
-            <code>xll</code> 的 <code>span</code> 属性。
-          </div>
+            <div class="code-user-desc">
+                如果要支持响应式，可以写成分别设置
+                <code>xs</code>
+                <code>sm</code>
+                <code>md</code>
+                <code>lg</code>
+                <code>xl</code>
+                <code>xll</code> 的 <code>span</code> 属性。
+            </div>
             <div class="lock-code" @click="showCode(3)" ref="xxx">
                 <div>
                     <s-icon
@@ -65,9 +65,9 @@ export default {
     name: 'gird',
     mixins: [mixin],
     components: {
-      's-row': Row,
-      's-col': Col,
-      's-icon': Icon,
+        's-row': Row,
+        's-col': Col,
+        's-icon': Icon,
     },
     data() {
         return {

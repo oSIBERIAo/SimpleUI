@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
 .sider {
     min-height: 20px;
-    outline: 1px dashed red;
+    //outline: 1px dashed red;
     button {
         position: absolute;
         left: 20px;

@@ -11,6 +11,6 @@ export default {
 <style lang="scss" scoped>
 .footer {
     min-height: 20px;
-    outline: 1px dashed red;
+    //outline: 1px dashed red;
 }
 </style>

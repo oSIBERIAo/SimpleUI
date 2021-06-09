@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .layout {
     display: flex;
-    outline: 1px dashed red;
+    //outline: 1px dashed red;
     flex-direction: column;
     flex-grow: 1;
 }
