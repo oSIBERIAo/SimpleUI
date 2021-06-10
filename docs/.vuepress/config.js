@@ -25,6 +25,7 @@ module.exports = {
                     '/component/toast.md',
                     '/component/popover.md',
                     '/component/collapse.md',
+                    '/component/slides.md',
                     '/component/demo.md',
                     '/component/gird2.md',
                 ],
