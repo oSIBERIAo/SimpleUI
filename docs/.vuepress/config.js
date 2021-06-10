@@ -26,6 +26,7 @@ module.exports = {
                     '/component/popover.md',
                     '/component/collapse.md',
                     '/component/slides.md',
+                    '/component/cascader.md',
                     '/component/demo.md',
                     '/component/gird2.md',
                 ],

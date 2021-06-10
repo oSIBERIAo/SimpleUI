@@ -83,6 +83,9 @@ export default {
         },
         loadingVisible(item) {
             let currentSelected = this.selected[this.level]
+            if (item.children === undefined && this.loadData === null) {
+                return false
+            }
             return (
                 currentSelected &&
                 !this.rightItems &&
