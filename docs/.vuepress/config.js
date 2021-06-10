@@ -23,6 +23,7 @@ module.exports = {
                     '/component/gird.md',
                     '/component/layout.md',
                     '/component/toast.md',
+                    '/component/popover.md',
                     '/component/demo.md',
                     '/component/gird2.md',
                 ],

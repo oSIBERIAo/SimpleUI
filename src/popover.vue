@@ -36,6 +36,13 @@ export default {
                 return ['click', 'hover'].indexOf(value) !== -1
             },
         },
+        zIndex: {
+            type: [String, Number],
+            default: 'auto',
+            validator: function (value) {
+                return typeof Number(value) == 'number'
+            },
+        },
     },
     methods: {
         popoverPosition() {
@@ -155,6 +162,14 @@ export default {
             this.$refs.trigger_wrapper.addEventListener(
                 'mouseleave',
                 this.close
+            )
+        }
+        if (this.zIndex !== 'auto') {
+            console.log('this.$refs.content_wrapper')
+            console.log()
+            this.$refs.content_wrapper.setAttribute(
+                'style',
+                `z-index:${Number(this.zIndex)};display: none;`
             )
         }
     },
