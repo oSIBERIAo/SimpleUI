@@ -19,11 +19,12 @@ module.exports = {
                 title: '组件',
                 collapsable: true,
                 children: [
-                    '/component/button.md',
                     '/component/gird.md',
                     '/component/layout.md',
+                    '/component/button.md',
                     '/component/toast.md',
                     '/component/popover.md',
+                    '/component/collapse.md',
                     '/component/demo.md',
                     '/component/gird2.md',
                 ],
