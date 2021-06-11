@@ -9,6 +9,8 @@ module.exports = {
         ],
     },
     themeConfig: {
+        repo: 'oSIBERIAo/SimpleUI',
+        sidebarDepth: 2,
         sidebar: [
             {
                 title: '入门',

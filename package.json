@@ -1,8 +1,9 @@
 {
     "name": "simpleui-pre-alpha",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "private": true,
     "description": "简UI框架",
+    "main": "index.js",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",

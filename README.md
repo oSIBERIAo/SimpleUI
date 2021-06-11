@@ -1,6 +1,5 @@
 # 简 UI————VUE UI 组件库
 
-https://travis-ci.com/oSIBERIAo/SimpleUI.svg?branch=master
 [官方文档](https://github.com/oSIBERIAo/SimpleUI)
 
 简洁明了的 UI 框架。
@@ -25,7 +24,7 @@ https://travis-ci.com/oSIBERIAo/SimpleUI.svg?branch=master
 1. 安装依赖
 
     ```
-    yarn install
+    yarn install simpleui-pre-alpha
     ```
 
 2. 启动 dev server
