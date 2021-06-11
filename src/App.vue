@@ -184,6 +184,16 @@
             <s-collapse-item title="标题3" name="3">内容</s-collapse-item>
         </s-collapse>
         <!-- <s-toast></s-toast> -->
+        <s-tab :selected="selected">
+            <s-tab-head>
+                <s-tab-item name="1">1</s-tab-item>
+                <s-tab-item name="2">2</s-tab-item>
+            </s-tab-head>
+            <s-tab-body>
+                <s-tab-pane name="1">content 1</s-tab-pane>
+                <s-tab-pane name="2">content 2</s-tab-pane>
+            </s-tab-body>
+        </s-tab>
     </div>
 </template>
 
@@ -291,6 +301,7 @@ export default {
             sourceCascader2: [],
             selectedCascader2: [],
             slidesSelected: '',
+            selected: '1',
         }
     },
     created() {

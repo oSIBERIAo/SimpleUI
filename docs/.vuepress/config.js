@@ -12,12 +12,12 @@ module.exports = {
         sidebar: [
             {
                 title: '入门',
-                collapsable: true,
+                collapsable: false,
                 children: ['/install/', '/get-started/'],
             },
             {
                 title: '组件',
-                collapsable: true,
+                collapsable: false,
                 children: [
                     '/component/gird.md',
                     '/component/layout.md',
@@ -27,8 +27,9 @@ module.exports = {
                     '/component/collapse.md',
                     '/component/slides.md',
                     '/component/cascader.md',
-                    '/component/demo.md',
-                    '/component/gird2.md',
+                    '/component/tab.md',
+                    // '/component/demo.md',
+                    // '/component/gird2.md',
                 ],
             },
         ],

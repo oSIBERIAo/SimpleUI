@@ -1,5 +1,5 @@
 <template>
-    <div class="tab-head">
+    <div class="tab-head" ref="head">
         <slot></slot>
         <div class="actions-wapper">
             <slot name="actions"></slot>
@@ -16,9 +16,10 @@ export default {
     mounted() {
         this.eventBus.$on('update:selected', (name, tabItem) => {
             let { width, left } = tabItem.$el.getBoundingClientRect()
+            let { left: leftHead } = this.$refs.head.getBoundingClientRect()
             let line = this.$el.querySelector('.line')
             line.style.width = width + 'px'
-            line.style.left = left + 'px'
+            line.style.left = left - leftHead + 'px'
         })
     },
     created() {},
