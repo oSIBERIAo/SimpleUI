@@ -52,50 +52,22 @@ const db = [
         id: 1,
         name: '北京',
         parent_id: 0,
-        k1: 'b',
-        k2: 'bj',
-        k3: 'beijing',
-        k4: '',
-        k5: '市',
-        k6: 110000,
-        k7: '010',
     },
     {
         id: 2,
         name: '天津',
         parent_id: 0,
-        k1: 't',
-        k2: 'tj',
-        k3: 'tianjin',
-        k4: '',
-        k5: '市',
-        k6: 120000,
-        k7: '022',
     },
     {
-        id: 36,
-        name: '东城',
-        parent_id: 1,
-        k1: 'd',
-        k2: 'dc',
-        k3: 'dongcheng',
-        k4: '',
-        k5: '区',
-        k6: 110101,
-        k7: '010',
+      id: 36,
+      name: '东城等城市',
+      parent_id: 1,
     },
-    {
-        id: 54,
-        name: '和平',
-        parent_id: 2,
-        k1: 'h',
-        k2: 'hp',
-        k3: 'heping',
-        k4: '',
-        k5: '区',
-        k6: 120101,
-        k7: '022',
-    },
+  {
+    id: 54,
+    name: '和平等城市',
+    parent_id: 2,
+  },
 ]
 
 function ajax(parentId = 0) {
@@ -140,69 +112,26 @@ export default {
             :load-data="loadData"
         ></s-cascader>
 
-        methods: {
-            loadData(node, callback) {
-                let id = node.id
-                ajax(id).then((result) => {
-                    callback(result)
-                    // console.log('更新级联', result)
-                })
-            },
-        },
-        data() {
-            return {
-            selectedCascader: [],
-            source: [],
-        }
-
-        const db = [
+const db = [
     {
         id: 1,
         name: '北京',
         parent_id: 0,
-        k1: 'b',
-        k2: 'bj',
-        k3: 'beijing',
-        k4: '',
-        k5: '市',
-        k6: 110000,
-        k7: '010',
     },
     {
         id: 2,
         name: '天津',
         parent_id: 0,
-        k1: 't',
-        k2: 'tj',
-        k3: 'tianjin',
-        k4: '',
-        k5: '市',
-        k6: 120000,
-        k7: '022',
     },
     {
         id: 36,
-        name: '东城',
+        name: '东城等城市',
         parent_id: 1,
-        k1: 'd',
-        k2: 'dc',
-        k3: 'dongcheng',
-        k4: '',
-        k5: '区',
-        k6: 110101,
-        k7: '010',
     },
     {
         id: 54,
-        name: '和平',
+        name: '和平等城市',
         parent_id: 2,
-        k1: 'h',
-        k2: 'hp',
-        k3: 'heping',
-        k4: '',
-        k5: '区',
-        k6: 120101,
-        k7: '022',
     },
 ]
 
@@ -218,6 +147,21 @@ function ajax(parentId = 0) {
         }, 1000)
     })
 }
+
+        methods: {
+            loadData(node, callback) {
+                let id = node.id
+                ajax(id).then((result) => {
+                    callback(result)
+                    // console.log('更新级联', result)
+                })
+            },
+        },
+        data() {
+            return {
+            selectedCascader: [],
+            source: [],
+        }
         `
                 .replace(/^ {8}/gm, '')
                 .trim(),
@@ -228,14 +172,5 @@ function ajax(parentId = 0) {
 <style lang="scss" scoped>
 .component-wrapper {
     overflow: inherit;
-}
-
-.component-wrapper-demo {
-    //* {
-    //    color: #2c3e50;
-    //    font-size: 18px;
-    //    font-weight: bolder;
-    //    text-align: center;
-    //}
 }
 </style>
