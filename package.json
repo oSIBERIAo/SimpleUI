@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
+        "build": "vue-cli-service build --target lib --name simpleui src/index.js",
         "test:unit": "vue-cli-service test:unit",
         "format": "prettier --write . ",
         "test": "karma start --single-run",
