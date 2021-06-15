@@ -1,6 +1,6 @@
 {
     "name": "simpleui-pre-alpha",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "简UI框架",
     "main": "dist/simpleui.umd.js",
     "scripts": {
