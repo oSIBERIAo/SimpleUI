@@ -1,8 +1,8 @@
 {
     "name": "simpleui-pre-alpha",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "简UI框架",
-    "main": "index.js",
+    "main": "dist/simpleui.umd.min.js",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build --target lib --name simpleui src/index.js",
