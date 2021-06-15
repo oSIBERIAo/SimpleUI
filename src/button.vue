@@ -22,27 +22,27 @@ export default {
             default: false,
         },
         icon_position: {
-            type: String,
-            default: 'left',
-            validator: function (value) {
-                // 这个值必须匹配下列字符串中的一个
-                return ['left', 'right'].indexOf(value) !== -1
-            },
+          type: String,
+          default: 'left',
+          validator: function (value) {
+            // 这个值必须匹配下列字符串中的一个
+            return ['left', 'right'].indexOf(value) !== -1
+          },
         },
     },
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 $font-size: 14px;
 $button-height: 32px;
 $border-radius: 4px;
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .loading {
     animation: spin 1s infinite linear;
