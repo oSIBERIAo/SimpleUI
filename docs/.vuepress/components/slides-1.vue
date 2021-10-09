@@ -33,7 +33,7 @@
                     }}</span>
                 </div>
             </div>
-            <div class="code-content" v-highlight style="height: 0;">
+            <div class="code-content" v-highlight style="height: 0">
                 <div class="code-content-height">
                     <pre><code class="html">{{ codeStr }}</code></pre>
                 </div>
@@ -50,7 +50,6 @@ import Icon from '../../../src/icon'
 
 import Toast from '../../../src/toast'
 import plugin from '../../../src/plugin'
-
 ;(function () {
     Vue.component('s-slides', Slides)
     Vue.component('s-slides-item', SlidesItem)

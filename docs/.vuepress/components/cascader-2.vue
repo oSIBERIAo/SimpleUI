@@ -22,7 +22,7 @@
                     }}</span>
                 </div>
             </div>
-            <div class="code-content" v-highlight style="height: 0;">
+            <div class="code-content" v-highlight style="height: 0">
                 <div class="code-content-height">
                     <pre><code class="html">{{ codeStr }}</code>
                     </pre>
@@ -38,7 +38,6 @@ import Cascader from '../../../src/cascader'
 import Icon from '../../../src/icon'
 
 import plugin from '../../../src/plugin'
-
 ;(function () {
     Vue.component('s-cascader', Cascader)
     Vue.component('s-icon', Icon)
@@ -59,15 +58,15 @@ const db = [
         parent_id: 0,
     },
     {
-      id: 36,
-      name: '东城等城市',
-      parent_id: 1,
+        id: 36,
+        name: '东城等城市',
+        parent_id: 1,
     },
-  {
-    id: 54,
-    name: '和平等城市',
-    parent_id: 2,
-  },
+    {
+        id: 54,
+        name: '和平等城市',
+        parent_id: 2,
+    },
 ]
 
 function ajax(parentId = 0) {

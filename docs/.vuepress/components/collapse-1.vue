@@ -4,7 +4,7 @@
         <div class="component-wrapper">
             <div class="component-wrapper-demo">
                 <s-collapse
-                    style="margin: 0 20px;"
+                    style="margin: 0 20px"
                     :selected.sync="selectedCollapse"
                 >
                     <s-collapse-item title="标题1" name="1"
@@ -30,7 +30,7 @@
                     }}</span>
                 </div>
             </div>
-            <div class="code-content" v-highlight style="height: 0;">
+            <div class="code-content" v-highlight style="height: 0">
                 <div class="code-content-height">
                     <pre><code class="html">{{ codeStr }}</code></pre>
                 </div>
@@ -48,7 +48,6 @@ import Icon from '../../../src/icon'
 
 import Toast from '../../../src/toast'
 import plugin from '../../../src/plugin'
-
 ;(function () {
     Vue.component('s-collapse', Collapse)
     Vue.component('s-collapse-item', CollapseItem)

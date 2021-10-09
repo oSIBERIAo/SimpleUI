@@ -5,10 +5,8 @@
         <h3>组件功能名字</h3>
         <p>组件功能描述</p>
         <div class="component-wrapper">
-            <div class="component-wrapper-demo">
-                组件展示位置
-            </div>
-            <div class="code-content" v-highlight style="height: 0;">
+            <div class="component-wrapper-demo">组件展示位置</div>
+            <div class="code-content" v-highlight style="height: 0">
                 <div class="code-content-height">
                     <!-- <div class="code-user-desc">
                 组件描述说明

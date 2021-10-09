@@ -33,9 +33,7 @@
                         </tr>
                         <tr>
                             <td>loadData</td>
-                            <td class="des">
-                                异步加载数据函数
-                            </td>
+                            <td class="des">异步加载数据函数</td>
                             <td class="type">Function</td>
                             <td>--</td>
                             <td>--</td>

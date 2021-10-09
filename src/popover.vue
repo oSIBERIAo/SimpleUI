@@ -8,7 +8,7 @@
         >
             <slot name="content" :close="close"></slot>
         </div>
-        <span ref="trigger_wrapper" style="display: inline-block;">
+        <span ref="trigger_wrapper" style="display: inline-block">
             <slot></slot>
         </span>
     </div>

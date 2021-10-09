@@ -1,12 +1,12 @@
 <template>
     <div id="app">
-        <button @click="showToastTop" style="height: 50px; width: 50px;">
+        <button @click="showToastTop" style="height: 50px; width: 50px">
             top
         </button>
-        <button @click="showToastCenter" style="height: 50px; width: 50px;">
+        <button @click="showToastCenter" style="height: 50px; width: 50px">
             center
         </button>
-        <button @click="showToastDown" style="height: 50px; width: 50px;">
+        <button @click="showToastDown" style="height: 50px; width: 50px">
             down
         </button>
         <br /><br /><br />
@@ -42,7 +42,7 @@
 
         <br /><br /><br />
         <div
-            style="display: flex; justify-content: center; align-items: center;"
+            style="display: flex; justify-content: center; align-items: center"
         >
             <s-popover position="left">
                 <template slot="content" slot-scope="{ close }">
@@ -97,7 +97,7 @@
         </div>
         <br /><br /><br /><br />
         <div
-            style="display: flex; justify-content: center; align-items: center;"
+            style="display: flex; justify-content: center; align-items: center"
         >
             <s-popover position="left" trigger="hover">
                 <template slot="content">
@@ -168,7 +168,7 @@
         <br /><br /><br />
         <h6>single:{{ selectedCollapse }}</h6>
         <s-collapse
-            style="margin: 0 20px;"
+            style="margin: 0 20px"
             :selected.sync="selectedCollapse"
             single
         >
@@ -178,7 +178,7 @@
         </s-collapse>
         <br /><br /><br />
         <h6>multiple:{{ selectedCollapse2 }}</h6>
-        <s-collapse style="margin: 0 20px;" :selected.sync="selectedCollapse2">
+        <s-collapse style="margin: 0 20px" :selected.sync="selectedCollapse2">
             <s-collapse-item title="标题1" name="1">内容</s-collapse-item>
             <s-collapse-item title="标题2" name="2">内容</s-collapse-item>
             <s-collapse-item title="标题3" name="3">内容</s-collapse-item>

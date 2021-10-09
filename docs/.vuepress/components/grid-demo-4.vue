@@ -46,7 +46,7 @@
                     }}</span>
                 </div>
             </div>
-            <div class="code-content" v-highlight style="height: 0;">
+            <div class="code-content" v-highlight style="height: 0">
                 <div class="code-content-height">
                     <pre><code class="html">{{ codeStr }}</code></pre>
                 </div>

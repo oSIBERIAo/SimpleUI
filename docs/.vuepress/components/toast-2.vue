@@ -3,15 +3,9 @@
         <h3>设置关闭按钮，内容使用HTML</h3>
         <div class="component-wrapper">
             <div class="component-wrapper-demo">
-                <s-button @click="showToastTop">
-                    top
-                </s-button>
-                <s-button @click="showToastCenter">
-                    center
-                </s-button>
-                <s-button @click="showToastDown">
-                    down
-                </s-button>
+                <s-button @click="showToastTop"> top </s-button>
+                <s-button @click="showToastCenter"> center </s-button>
+                <s-button @click="showToastDown"> down </s-button>
             </div>
             <div class="lock-code" @click="showCode(1)" ref="xxx">
                 <div>
@@ -25,7 +19,7 @@
                     }}</span>
                 </div>
             </div>
-            <div class="code-content" v-highlight style="height: 0;">
+            <div class="code-content" v-highlight style="height: 0">
                 <div class="code-content-height">
                     <pre><code class="html">{{ codeStr }}</code></pre>
                 </div>

@@ -4,15 +4,9 @@
         <div class="component-wrapper">
             <div class="component-wrapper-demo">
                 <s-layout>
-                    <s-header>
-                        header
-                    </s-header>
-                    <s-content>
-                        content
-                    </s-content>
-                    <s-footer>
-                        footer
-                    </s-footer>
+                    <s-header> header </s-header>
+                    <s-content> content </s-content>
+                    <s-footer> footer </s-footer>
                 </s-layout>
             </div>
             <!--            <div class="code-user-desc">-->
@@ -30,7 +24,7 @@
                     }}</span>
                 </div>
             </div>
-            <div class="code-content" v-highlight style="height: 0;">
+            <div class="code-content" v-highlight style="height: 0">
                 <div class="code-content-height">
                     <pre><code class="html">{{ codeStr }}</code></pre>
                 </div>

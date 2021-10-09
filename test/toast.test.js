@@ -90,8 +90,8 @@ describe('Toast', () => {
                     judge = false
                 }
                 //模拟点击关闭按钮
-                let closeButton = document.querySelector('.line')
-                    .nextElementSibling
+                let closeButton =
+                    document.querySelector('.line').nextElementSibling
                 if (!closeButton.textContent.trim() === 'testButton') {
                     judge = false
                 }
