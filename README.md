@@ -1,6 +1,6 @@
 # SimpleUI 简 UI
 
-[官方文档](https://github.com/oSIBERIAo/SimpleUI)
+[官方文档](https://osiberiao.github.io/SimpleUI/)
 
 一款基于 VUE 的简洁明了的 UI 框架。
 
